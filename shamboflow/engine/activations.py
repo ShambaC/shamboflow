@@ -1,8 +1,9 @@
 """Activation functions"""
 
 import math
+import numpy as np
 
-def signmoid(x : float) -> float :
+def signmoid(x : np.ndarray) -> np.ndarray :
     """Sigmoid acitvation function
     
     Applies the sigmoid activation function to a value.
@@ -15,8 +16,8 @@ def signmoid(x : float) -> float :
 
     Args
     ----
-    x : float
-        The input value to apply activation function over.
+    x : ndarray
+        The input vector to apply activation function over.
 
     Returns
     -------
@@ -24,10 +25,9 @@ def signmoid(x : float) -> float :
     
     """
 
-    res = 1 / (1 + math.exp(-x))
-    return res
+    return (1 / (1 + np.exp(-x)))
 
-def tanh(x : float) -> float :
+def tanh(x : np.ndarray) -> np.ndarray :
     """Hyperbolic tangent activation function
 
     `tanh(x) = (exp(x) - exp(-x)) / (exp(x) + exp(-x))`
@@ -36,19 +36,18 @@ def tanh(x : float) -> float :
 
     Args
     ----
-    x : float
-        The input value to apply activation function over.
+    x : ndarray
+        The input vector to apply activation function over.
 
     Returns
     -------
-        Value after sigmoid is applied on x
+        Value after tanh is applied on x
     
     """
     
-    res = (math.exp(x) - math.exp(-x)) / (math.exp(x) + math.exp(-x))
-    return res
+    return ((np.exp(x) - np.exp(-x)) / (np.exp(x) + np.exp(-x)))
 
-def relu(x : float) -> float :
+def relu(x : np.ndarray) -> np.ndarray :
     """ReLU activation function
     
     Applies the ReLU activation function on the input x.
@@ -64,16 +63,15 @@ def relu(x : float) -> float :
 
     Args
     ----
-    x : float
-        The input value to apply activation function over.
+    x : ndarray
+        The input vector to apply activation function over.
 
     Returns
     -------
-        Value after sigmoid is applied on x
+        Value after relu is applied on x
     """
 
-    res = max(0, x)
-    return res
+    return np.fmax(0, x)
 
 def leakyrelu(x : float, slope : float) -> float :
     """Leaky ReLU activation function
@@ -99,8 +97,7 @@ def leakyrelu(x : float, slope : float) -> float :
         Value after sigmoid is applied on x
     """
 
-    res = x if x > 0 else (slope * x)
-    return res
+    return np.where(x > 0, x, np.multiply(slope, x))
 
 def softmax(x : any) :
     ...
