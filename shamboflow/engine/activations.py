@@ -1,7 +1,8 @@
 """Activation functions"""
 
-import math
 import numpy as np
+import cupy as cp
+from shamboflow import IS_CUDA
 
 def signmoid(x : np.ndarray) -> np.ndarray :
     """Sigmoid acitvation function
@@ -25,6 +26,14 @@ def signmoid(x : np.ndarray) -> np.ndarray :
     
     """
 
+    if IS_CUDA :
+        try :
+            x_gpu = cp.asarray(x)
+            res = (1 / (1 + cp.exp(-x_gpu)))
+            return cp.asnumpy(res)
+        except :
+            pass
+
     return (1 / (1 + np.exp(-x)))
 
 def tanh(x : np.ndarray) -> np.ndarray :
@@ -44,6 +53,14 @@ def tanh(x : np.ndarray) -> np.ndarray :
         Value after tanh is applied on x
     
     """
+
+    if IS_CUDA :
+        try :
+            x_gpu = cp.asarray(x)
+            res = (cp.exp(x_gpu) - cp.exp(-x_gpu)) / (cp.exp(x_gpu) + cp.exp(-x_gpu))
+            return cp.asnumpy(res)
+        except :
+            pass
     
     return ((np.exp(x) - np.exp(-x)) / (np.exp(x) + np.exp(-x)))
 
@@ -52,7 +69,7 @@ def relu(x : np.ndarray) -> np.ndarray :
     
     Applies the ReLU activation function on the input x.
 
-    ReLU or Rectilinear Activation Unit was devised to overcome
+    ReLU or Rectilinear Unit was devised to overcome
     the issue of vanishing gradient in sigmoid function. It resolves
     the issue by not having any upper limit. But that comes with
     its own problems.
@@ -71,6 +88,14 @@ def relu(x : np.ndarray) -> np.ndarray :
         Value after relu is applied on x
     """
 
+    if IS_CUDA :
+        try :
+            x_gpu = cp.asarray(x)
+            res = cp.fmax(0, x_gpu)
+            return cp.asnumpy(res)
+        except :
+            pass
+
     return np.fmax(0, x)
 
 def leakyrelu(x : np.ndarray, slope : float) -> np.ndarray :
@@ -81,7 +106,7 @@ def leakyrelu(x : np.ndarray, slope : float) -> np.ndarray :
     to ReLU. ReLU would simply discard
     them, but leaky relu uses them as well.
 
-    `leakyReLY(x, slope) = if (x > 0) => x, if (x <= 0) => slope * x`
+    `leakyReLU(x, slope) = if (x > 0) => x, if (x <= 0) => slope * x`
 
     Range: (-inf, inf)
 
@@ -97,7 +122,77 @@ def leakyrelu(x : np.ndarray, slope : float) -> np.ndarray :
         Value after leakyrelu is applied on x
     """
 
+    if IS_CUDA :
+        try :
+            x_gpu = cp.asarray(x)
+            res = cp.where(x_gpu > 0, x_gpu, cp.multiply(slope, x_gpu))
+            return cp.asnumpy(res)
+        except :
+            pass
+
     return np.where(x > 0, x, np.multiply(slope, x))
 
-def softmax(x : any) :
-    ...
+def softmax(x : np.ndarray) -> np.ndarray :
+    """SoftMax activation function
+    
+    This function takes a vector as input
+    and changes them to probabilities based
+    on their values with respect to the
+    vector itself.
+
+    Range: (0, 1)
+
+    Args
+    ----
+    x : ndarray
+        The input vector to apply activation function over.
+
+    Returns
+    -------
+        Value after softmax is applied on x
+    """
+
+    if IS_CUDA :
+        try :
+            x_gpu = cp.asarray(x)
+            res = cp.exp(x_gpu) / cp.sum(cp.exp(x_gpu))
+            return cp.asnumpy(res)
+        except :
+            pass
+
+    res = np.exp(x) / np.sum(np.exp(x))
+    return res
+
+
+
+def get(func : str) :
+    """Helper function to get an activation function
+
+    Return the appropriate activation function
+    depending on the given string
+
+    Args
+    ----
+        func : str
+            Query string for the requested activation function
+
+    Returns
+    -------
+        Appropriate function
+    """
+    # TODO : handle wrong inputs
+    if not isinstance(func, str) :
+        ...
+
+    func = func.strip().lower()
+
+    if func == "sigmoid" :
+        return signmoid
+    elif func == "tanh" :
+        return tanh
+    elif func == "relu" :
+        return relu
+    elif func == "leakyrelu" :
+        return leakyrelu
+    elif func == "softmax" :
+        return softmax
