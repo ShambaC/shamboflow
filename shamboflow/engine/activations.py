@@ -73,7 +73,7 @@ def relu(x : np.ndarray) -> np.ndarray :
 
     return np.fmax(0, x)
 
-def leakyrelu(x : float, slope : float) -> float :
+def leakyrelu(x : np.ndarray, slope : float) -> np.ndarray :
     """Leaky ReLU activation function
     
     This function was devised to address
@@ -87,14 +87,14 @@ def leakyrelu(x : float, slope : float) -> float :
 
     Args
     ----
-    x : float
-        The input value to apply activation function over.
+    x : ndarray
+        The input vector to apply activation function over.
     slope : float
         slope of the line that provides output for negative inputs
 
     Returns
     -------
-        Value after sigmoid is applied on x
+        Value after leakyrelu is applied on x
     """
 
     return np.where(x > 0, x, np.multiply(slope, x))
