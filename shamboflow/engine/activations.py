@@ -4,7 +4,7 @@ import numpy as np
 import cupy as cp
 from shamboflow import IS_CUDA
 
-def signmoid(x : np.ndarray) -> np.ndarray :
+def signmoid(x : np.ndarray, **kwargs) -> np.ndarray :
     """Sigmoid acitvation function
     
     Applies the sigmoid activation function to a value.
@@ -36,7 +36,7 @@ def signmoid(x : np.ndarray) -> np.ndarray :
 
     return (1 / (1 + np.exp(-x)))
 
-def tanh(x : np.ndarray) -> np.ndarray :
+def tanh(x : np.ndarray, **kwargs) -> np.ndarray :
     """Hyperbolic tangent activation function
 
     `tanh(x) = (exp(x) - exp(-x)) / (exp(x) + exp(-x))`
@@ -64,7 +64,7 @@ def tanh(x : np.ndarray) -> np.ndarray :
     
     return ((np.exp(x) - np.exp(-x)) / (np.exp(x) + np.exp(-x)))
 
-def relu(x : np.ndarray) -> np.ndarray :
+def relu(x : np.ndarray, **kwargs) -> np.ndarray :
     """ReLU activation function
     
     Applies the ReLU activation function on the input x.
@@ -98,7 +98,7 @@ def relu(x : np.ndarray) -> np.ndarray :
 
     return np.fmax(0, x)
 
-def leakyrelu(x : np.ndarray, slope : float) -> np.ndarray :
+def leakyrelu(x : np.ndarray, leakyrelu_slope : float, **kwargs) -> np.ndarray :
     """Leaky ReLU activation function
     
     This function was devised to address
@@ -125,12 +125,12 @@ def leakyrelu(x : np.ndarray, slope : float) -> np.ndarray :
     if IS_CUDA :
         try :
             x_gpu = cp.asarray(x)
-            res = cp.where(x_gpu > 0, x_gpu, cp.multiply(slope, x_gpu))
+            res = cp.where(x_gpu > 0, x_gpu, cp.multiply(leakyrelu_slope, x_gpu))
             return cp.asnumpy(res)
         except :
             pass
 
-    return np.where(x > 0, x, np.multiply(slope, x))
+    return np.where(x > 0, x, np.multiply(leakyrelu_slope, x))
 
 def softmax(x : np.ndarray) -> np.ndarray :
     """SoftMax activation function
