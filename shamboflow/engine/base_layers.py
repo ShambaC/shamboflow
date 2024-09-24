@@ -43,3 +43,10 @@ class BaseLayer :
         
         """
         self.is_built = True
+
+    def compute(self) -> None :
+        """Method to compute various parameter
+        
+        This method is to be implemented in inherited classes
+        """
+        pass

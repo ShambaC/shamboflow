@@ -59,8 +59,10 @@ class Dense(BaseLayer) :
         """
         if IS_CUDA :
             self.bias_array = cp.random.uniform(-0.5, 0.5, self.size)
+            self.output_array = cp.zeros(self.size)
         else :
             self.bias_array = np.random.uniform(-0.5, 0.5, self.size)
+            self.output_array = np.zeros(self.size)
 
         super().build()
     

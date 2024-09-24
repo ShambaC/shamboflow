@@ -22,3 +22,7 @@ try :
         print(f"Total Memory: {props['totalGlobalMem'] / 1e9:.2f} GB")
 except :
     pass
+
+# Add Colorama fixes to terminal
+from colorama import just_fix_windows_console
+just_fix_windows_console()
