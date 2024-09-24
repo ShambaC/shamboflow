@@ -12,15 +12,15 @@ class Dense(BaseLayer) :
 
     A Dense layer is a simple 1D layer
     that just has a given number of
-    perceptrons. Its the most common
+    neurons. Its the most common
     and basic layer.
 
     Attributes
     ----------
         size : int
-            The number of perceptrons in the layer
+            The number of neurons in the layer
         bias : ndarray
-            An array of bias values for a perceptron
+            An array of bias values for a neuron
         activation : function
             The activation function to apply to this layer
         output : ndarray
@@ -34,7 +34,7 @@ class Dense(BaseLayer) :
         Args
         ----
             size : int
-                The number of perceptrons in the layer
+                The number of neurons in the layer
             activation : str
                 The activation function to use for the layer
         """
@@ -45,7 +45,8 @@ class Dense(BaseLayer) :
 
         self.bias_array = None
         self.output_array = None
-        self.leakyrelu_slope = None
+        self.error_array = None
+        self.leakyrelu_slope = 0.0
 
         if "leakyrelu_slope" in kwargs : 
             self.leakyrelu_slope = kwargs.get("leakyrelu_slope")
@@ -57,11 +58,9 @@ class Dense(BaseLayer) :
         This method initializes the bias and output data array.
         """
         if IS_CUDA :
-            self.bias_array = cp.random.rand(self.size)
-            self.output_array = cp.random.rand(self.size)
+            self.bias_array = cp.random.uniform(-0.5, 0.5, self.size)
         else :
-            self.bias_array = np.random.rand(self.size)
-            self.output_array = np.random.rand(self.size)
+            self.bias_array = np.random.uniform(-0.5, 0.5, self.size)
 
         super().build()
     
@@ -91,12 +90,9 @@ class Dense(BaseLayer) :
         if IS_CUDA :
             input_gpu = cp.asarray(input)
             midway = cp.add(input_gpu, self.bias_array)
-            res = self.activation(cp.asnumpy(midway), self.leakyrelu_slope)
-            return res
+            self.output_array = self.activation(cp.asnumpy(midway), leakyrelu_slope=self.leakyrelu_slope)
+            return self.output_array
 
         midway = np.add(input, self.bias_array)
-        res = self.activation(midway, self.leakyrelu_slope)
-        return res
-    
-    def backprop(self) :
-        ...
+        self.output_array = self.activation(midway, self.leakyrelu_slope)
+        return self.output_array

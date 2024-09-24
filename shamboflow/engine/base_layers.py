@@ -5,7 +5,7 @@ class BaseLayer :
 
     A layer is an object that is a part of
     the neural network. It performs calculations
-    on perceptrons or neurons present in it
+    on neurons or neurons present in it
     commonly. It can also not have computable
     neurons, instead can also be used to filter
     data from previous layers.
