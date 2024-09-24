@@ -44,3 +44,25 @@ def MSE(pred_val : np.ndarray, obs_val : np.ndarray) -> float :
     mse_val = (1 / sq_err.size) * np.sum(sq_err)
 
     return mse_val.item()
+
+
+def get(func : str) :
+    """Helper function to get a loss function
+
+    Return the appropriate loss function
+    depending on the given string
+
+    Args
+    ----
+        func : str
+            Query string for the requested loss function
+
+    Returns
+    -------
+        Appropriate function
+    """
+
+    func = func.strip().lower()
+
+    if func == "mean_squared_error" :
+        return MSE
