@@ -42,6 +42,7 @@ class Dense(BaseLayer) :
 
         self.size = size
         self.activation = get(activation)
+        self.activation_str = activation
 
         self.bias_array = None
         self.output_array = None
