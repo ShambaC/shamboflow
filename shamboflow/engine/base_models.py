@@ -46,7 +46,8 @@ class BaseModel :
         self.learning_rate = 0.0
         self.train_data_x = None
         self.train_data_y = None
-        self.validation_data = None
+        self.validation_x = None
+        self.validation_y = None
         self.has_validation_data = False
         self.test_data_x = None
         self.test_data_y = None
@@ -58,6 +59,7 @@ class BaseModel :
 
         self.metrics = {'loss' : 0.0, 'acc' : 0.0, 'val_loss' : 0.0, 'val_acc' : 0.0}
         self.current_epoch = 0
+        self.is_fitting = False
 
         self.parameters = 0
 
@@ -96,7 +98,7 @@ class BaseModel :
 
     def stop(self) -> None :
         """Method to stop the training"""
-        pass
+        self.is_fitting = False
 
     def summary(self) -> None :
         """Prints a summary of the model with all necessary details"""

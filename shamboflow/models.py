@@ -77,24 +77,65 @@ class Sequential(BaseModel) :
             print(Fore.GREEN + "Finished generating weight matrices")
 
         print(Fore.CYAN + "Model successfully compiled")
+        print(Style.RESET_ALL)
 
         self.is_compiled = True
 
-    def fit(self) -> None:
+    def fit(self, train_x : np.ndarray, train_y : np.ndarray, epochs : int, **kwargs) -> None:
         """Method to train the model and fit the data
 
         It runs the training where the
         network does the learning.
+
+        Args
+        ----
+            train_x : ndarray
+                The features of the dataset
+            train_y : ndarray
+                The label of the dataset
+            epochs : int
+                THe number of steps to run the training for
+            
+        Kwargs
+        ------
+            validation_x : ndarray
+            validation_y : ndarray
+            callbacks : list
+                A list of callback methods
         
         """
 
-        pass
+        self.train_data_x = train_x
+        self.train_data_y = train_y
+        self.epochs = epochs
+
+        if 'validation_x' in kwargs and 'validation_y' in kwargs :
+            self.has_validation_data = True
+            self.validation_x = kwargs['validation_x']
+            self.validation_y = kwargs['validation_y']
+
+        if 'callbacks' in kwargs :
+            self.callbacks = kwargs['callbacks']
+
+        while self.is_fitting and self.current_epoch <= self.epochs :
+
+            num_rows = self.train_data_x.shape[0]
+
+            with tqdm(total=num_rows) as pbar :
+                def row_iter(x) :
+                    pbar.update(1)
+
+                    # TODO here for each row
+
+                return np.apply_along_axis(row_iter, 0, self.train_data_x)
+        
 
     def summary(self) -> None:
         """Prints a summary of the model once compiled"""
 
         if not self.is_compiled :
             print(Back.RED + Fore.WHITE + "Model has not been compiled.\nCompile the model first using model.compile()")
+            print(Style.RESET_ALL)
             return
 
         print(Fore.WHITE + "Model type : " + Fore.CYAN + "Sequential\n")
@@ -103,6 +144,7 @@ class Sequential(BaseModel) :
         for layer in self.layers :
             print("-> " + Fore.CYAN + layer.name + Fore.WHITE + f"Neurons: {layer.size} Activation: {layer.activation_str} Trainable: {layer.trainable}")
 
+        print(Style.RESET_ALL)
         print(f"\nTrainable Params: {self.parameters}")
 
     def save(self, save_path : str) -> None:

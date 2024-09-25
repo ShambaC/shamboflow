@@ -1,6 +1,6 @@
 """A collection of common callback functions"""
 
-from colorama import Fore, Back
+from colorama import Fore, Back, Style
 
 from shamboflow.engine.base_callback import BaseCallback
 from shamboflow.engine.base_models import BaseModel
@@ -57,6 +57,7 @@ class EarlyStopping(BaseCallback) :
 
                 if self.patience_ctr == self.patience :
                     print(Back.RED + Fore.WHITE + f"Early Stopping, {self.monitor} has not improved for past {self.patience} epochs")
+                    print(Style.RESET_ALL)
                     model.stop()
             else :
                 self.patience_ctr = 0
@@ -69,6 +70,7 @@ class EarlyStopping(BaseCallback) :
                     
                 if self.patience_ctr == self.patience :
                     print(Back.RED + Fore.WHITE + f"Early Stopping, {self.monitor} has not improved for past {self.patience} epochs")
+                    print(Style.RESET_ALL)
                     model.stop()
             else :
                 self.patience_ctr = 0
@@ -79,5 +81,5 @@ class EarlyStopping(BaseCallback) :
 class ReduceLROnPlateau(BaseCallback) :
     """Reduce Learning Rate on Plateau callback
     
-    
+
     """
