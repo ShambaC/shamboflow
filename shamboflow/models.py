@@ -67,11 +67,11 @@ class Sequential(BaseModel) :
             self.parameters += size_a * size_b
 
             if IS_CUDA :
-                weigth_mat = cp.random.uniform(-0.5, 0.5, (size_a, size_b))
-                self.weights.append(weigth_mat)
+                weight_mat = cp.random.uniform(-0.5, 0.5, (size_a, size_b))
+                self.weights.append(weight_mat)
             else :
-                weigth_mat = np.random.uniform(-0.5, 0.5, (size_a, size_b))
-                self.weights.append(weigth_mat)
+                weight_mat = np.random.uniform(-0.5, 0.5, (size_a, size_b))
+                self.weights.append(weight_mat)
 
         if verbose :
             print(Fore.GREEN + "Finished generating weight matrices")
@@ -106,14 +106,41 @@ class Sequential(BaseModel) :
         print(f"\nTrainable Params: {self.parameters}")
 
     def save(self, save_path : str) -> None:
-        """Method to save the model to disk"""
+        """Method to save the model to disk
+        
+        Args
+        ----
+            save_path : str
+                Path to where the model will be saved, along with the name of the model file
+        """
 
         import pickle
+        import os
+
+        if not os.path.isfile(save_path) :
+            save_path += "/model.meow"
 
         with open(save_path, 'wb') as f :
             pickle.dump(self, f)
             print(f"Saved model to: {save_path}")
 
 
-def load_model(path_to_model : str) :
-    ...
+def load_model(path_to_model : str) -> BaseModel :
+    """Method to load a model from disk
+    
+    Args
+    ----
+        path_to_model : str
+            path to the model file
+    
+    Returns
+    -------
+        The model object
+
+    """
+
+    import pickle
+
+    with open(path_to_model, 'rb') as f :
+        model = pickle.load(f)
+        return model

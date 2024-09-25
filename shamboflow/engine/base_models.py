@@ -47,6 +47,7 @@ class BaseModel :
         self.train_data_x = None
         self.train_data_y = None
         self.validation_data = None
+        self.has_validation_data = False
         self.test_data_x = None
         self.test_data_y = None
         self.epochs = None
@@ -54,6 +55,9 @@ class BaseModel :
 
         self.error_val = 0.0
         self.accuracy_val = 0.0
+
+        self.metrics = {'loss' : 0.0, 'acc' : 0.0, 'val_loss' : 0.0, 'val_acc' : 0.0}
+        self.current_epoch = 0
 
         self.parameters = 0
 
@@ -88,6 +92,11 @@ class BaseModel :
         
         To be implemented in child
         """
+        pass
+
+    def stop(self) -> None :
+        """Method to stop the training"""
+        pass
 
     def summary(self) -> None :
         """Prints a summary of the model with all necessary details"""
@@ -99,6 +108,8 @@ class BaseModel :
     
     def evaluate(self) -> None :
         """Evaluates metrics based on a Test dataset"""
+        pass
     
     def predict(self) -> None :
         """Calculate inference using the trained model"""
+        pass
