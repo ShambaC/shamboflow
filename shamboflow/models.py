@@ -8,7 +8,7 @@ from shamboflow.engine.base_models import BaseModel
 from shamboflow.engine import losses
 
 from tqdm import tqdm, trange
-from colorama import Fore
+from colorama import Fore, Back, Style
 
 class Sequential(BaseModel) :
     """A simple sequential model with multiple layers one after the other
@@ -47,7 +47,7 @@ class Sequential(BaseModel) :
 
         if verbose :
             print(Fore.CYAN + "Compiling Model ...")
-            print("Building layers")
+            print(Style.RESET_ALL + "Building layers")
 
         with tqdm(self.layers) as pbar :
             for layer in pbar :
@@ -58,7 +58,7 @@ class Sequential(BaseModel) :
 
         if verbose :
             print(Fore.GREEN + "Finished building layers!")
-            print("Generating weight matrices")
+            print(Style.RESET_ALL + "Generating weight matrices")
             
         for i in trange(len(self.layers) - 1) :
             size_a = self.layers[i].size
@@ -79,3 +79,41 @@ class Sequential(BaseModel) :
         print(Fore.CYAN + "Model successfully compiled")
 
         self.is_compiled = True
+
+    def fit(self) -> None:
+        """Method to train the model and fit the data
+
+        It runs the training where the
+        network does the learning.
+        
+        """
+
+        pass
+
+    def summary(self) -> None:
+        """Prints a summary of the model once compiled"""
+
+        if not self.is_compiled :
+            print(Back.RED + Fore.WHITE + "Model has not been compiled.\nCompile the model first using model.compile()")
+            return
+
+        print(Fore.WHITE + "Model type : " + Fore.CYAN + "Sequential\n")
+        print(Fore.WHITE + "Layers: ")
+
+        for layer in self.layers :
+            print("-> " + Fore.CYAN + layer.name + Fore.WHITE + f"Neurons: {layer.size} Activation: {layer.activation_str} Trainable: {layer.trainable}")
+
+        print(f"\nTrainable Params: {self.parameters}")
+
+    def save(self, save_path : str) -> None:
+        """Method to save the model to disk"""
+
+        import pickle
+
+        with open(save_path, 'wb') as f :
+            pickle.dump(self, f)
+            print(f"Saved model to: {save_path}")
+
+
+def load_model(path_to_model : str) :
+    ...
