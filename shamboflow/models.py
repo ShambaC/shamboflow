@@ -5,7 +5,7 @@ import cupy as cp
 
 from shamboflow import IS_CUDA
 from shamboflow.engine.base_models import BaseModel
-from shamboflow.engine.losses import get
+from shamboflow.engine import losses
 
 from tqdm import tqdm, trange
 from colorama import Fore
@@ -43,7 +43,7 @@ class Sequential(BaseModel) :
 
         self.learning_rate = learning_rate
         self.loss_str = loss
-        self.loss = get(loss)
+        self.loss = losses.get(loss)
 
         if verbose :
             print(Fore.CYAN + "Compiling Model ...")

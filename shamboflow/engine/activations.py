@@ -132,7 +132,7 @@ def leakyrelu(x : np.ndarray, leakyrelu_slope : float, **kwargs) -> np.ndarray :
 
     return np.where(x > 0, x, np.multiply(leakyrelu_slope, x))
 
-def softmax(x : np.ndarray) -> np.ndarray :
+def softmax(x : np.ndarray, **kwargs) -> np.ndarray :
     """SoftMax activation function
     
     This function takes a vector as input
@@ -194,5 +194,5 @@ def get(func : str) :
         return relu
     elif func == "leakyrelu" :
         return leakyrelu
-    elif func == "softmax" :
-        return softmax
+    # elif func == "softmax" :
+    #     return softmax
