@@ -97,5 +97,5 @@ class Dense(BaseLayer) :
             return self.output_array
 
         midway = np.add(input, self.bias_array)
-        self.output_array = self.activation(midway, self.leakyrelu_slope)
+        self.output_array = self.activation(midway, leakyrelu_slope=self.leakyrelu_slope)
         return self.output_array
