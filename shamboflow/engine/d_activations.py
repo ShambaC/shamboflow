@@ -67,4 +67,37 @@ def d_leakyrelu(x : np.ndarray, leakyrelu_slope : float, **kwargs) -> np.ndarray
     return np.where(x < 0, leakyrelu_slope, 1)
 
 def d_softmax(x : np.ndarray, **kwargs) -> np.ndarray :
-    ...
+    pass
+
+
+def get(func : str) :
+    """Helper function to get an activation function derivative
+
+    Return the appropriate activation function
+    depending on the given string
+
+    Args
+    ----
+        func : str
+            Query string for the requested activation function derivative
+
+    Returns
+    -------
+        Appropriate function
+    """
+    # TODO : handle wrong inputs
+    if not isinstance(func, str) :
+        ...
+
+    func = func.strip().lower()
+
+    if func == "sigmoid" :
+        return d_sigmoid
+    elif func == "tanh" :
+        return d_tanh
+    elif func == "relu" :
+        return d_relu
+    elif func == "leakyrelu" :
+        return d_leakyrelu
+    # elif func == "softmax" :
+    #     return softmax
