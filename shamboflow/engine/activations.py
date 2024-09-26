@@ -4,7 +4,7 @@ import numpy as np
 import cupy as cp
 from shamboflow import IS_CUDA
 
-def signmoid(x : np.ndarray, **kwargs) -> np.ndarray :
+def sigmoid(x : np.ndarray, **kwargs) -> np.ndarray :
     """Sigmoid acitvation function
     
     Applies the sigmoid activation function to a value.
@@ -187,7 +187,7 @@ def get(func : str) :
     func = func.strip().lower()
 
     if func == "sigmoid" :
-        return signmoid
+        return sigmoid
     elif func == "tanh" :
         return tanh
     elif func == "relu" :
