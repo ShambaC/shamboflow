@@ -28,7 +28,7 @@ class Dense(BaseLayer) :
     
     """
 
-    def __init__(self, size : int, activation : str, **kwargs) -> None:
+    def __init__(self, size : int, activation : str = None, **kwargs) -> None:
         """Constructor for Dense Layer
 
         Args
@@ -38,11 +38,12 @@ class Dense(BaseLayer) :
             activation : str
                 The activation function to use for the layer
         """
-        super().__init__("Dense", True)
+        super().__init__("Dense", activation != None)
 
         self.size = size
-        self.activation = get(activation)
-        self.activation_str = activation
+        if activation != None :
+            self.activation = get(activation)
+            self.activation_str = activation
 
         self.bias_array = None
         self.output_array = None
@@ -89,6 +90,10 @@ class Dense(BaseLayer) :
             The output vector after computaion
         
         """
+
+        if not self.trainable :
+            self.output_array = input
+            return self.output_array
 
         if IS_CUDA :
             input_gpu = cp.asarray(input)
