@@ -135,7 +135,7 @@ class Sequential(BaseModel) :
 
                         if IS_CUDA :
                             op_gpu = cp.asarray(self.layers[num_layer - 1].output_array)
-                            weight_gpu = cp.asarray(self.weights[num_layer - 1])
+                            weight_gpu = self.weights[num_layer - 1]
                             layer.compute(cp.matmul(op_gpu, weight_gpu))
                         else :
                             op = self.layers[num_layer - 1].output_array
@@ -150,6 +150,20 @@ class Sequential(BaseModel) :
                     ## Compute Gradients for output layer
                     d_loss_fun = d_losses.get(self.loss_str)
                     d_act_fun = d_activations.get(self.layers[num_layer].activation_str)
+
+                    if IS_CUDA :
+                        d_loss_res_gpu = cp.asarray(d_loss_fun(self.layers[num_layer].output_array, self.train_data_y[num_rows]))
+                        d_act_res_gpu = cp.asarray(d_act_fun(self.layers[num_layer].midway))
+                        gradient_op = cp.multiply(d_loss_res_gpu, d_act_res_gpu)
+                        weight_gradient = cp.multiply.outer(gradient_op, self.layers[num_layer - 1].output_array)
+                        self.weights[num_layer - 1] = cp.subtract(self.weights[num_layer - 1], cp.multiply(self.learning_rate, weight_gradient))
+                        
+                    else :
+                        d_loss_res = d_loss_fun(self.layers[num_layer].output_array, self.train_data_y[num_rows])
+                        d_act_res = d_act_fun(self.layers[num_layer].midway)
+                        gradient_op = np.multiply(d_loss_res, d_act_res)
+                        weight_gradient = np.multiply.outer(gradient_op, self.layers[num_layer - 1].output_array)
+                        self.weights[num_layer - 1] = np.subtract(self.weights[num_layer - 1], np.multiply(self.learning_rate, weight_gradient))
 
 
                     pbar.set_postfix_str(f"Accuracy: {self.accuracy_val}, Loss: {self.error_val}")

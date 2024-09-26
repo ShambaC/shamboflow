@@ -47,6 +47,7 @@ class Dense(BaseLayer) :
 
         self.bias_array = None
         self.output_array = None
+        self.midway = None
         self.error_array = None
         self.leakyrelu_slope = 0.0
 
@@ -97,10 +98,10 @@ class Dense(BaseLayer) :
 
         if IS_CUDA :
             input_gpu = cp.asarray(input)
-            midway = cp.add(input_gpu, self.bias_array)
-            self.output_array = self.activation(cp.asnumpy(midway), leakyrelu_slope=self.leakyrelu_slope)
+            self.midway = cp.add(input_gpu, self.bias_array)
+            self.output_array = self.activation(cp.asnumpy(self.midway), leakyrelu_slope=self.leakyrelu_slope)
             return self.output_array
 
-        midway = np.add(input, self.bias_array)
-        self.output_array = self.activation(midway, leakyrelu_slope=self.leakyrelu_slope)
+        self.midway = np.add(input, self.bias_array)
+        self.output_array = self.activation(self.midway, leakyrelu_slope=self.leakyrelu_slope)
         return self.output_array
