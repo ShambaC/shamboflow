@@ -6,6 +6,7 @@ import cupy as cp
 from shamboflow import IS_CUDA
 from shamboflow.engine.base_models import BaseModel
 from shamboflow.engine import losses
+from shamboflow.engine import d_losses, d_activations
 
 from tqdm import tqdm, trange
 from colorama import Fore, Back, Style
@@ -117,17 +118,46 @@ class Sequential(BaseModel) :
         if 'callbacks' in kwargs :
             self.callbacks = kwargs['callbacks']
 
-        while self.is_fitting and self.current_epoch <= self.epochs :
+        num_rows = self.train_data_x.shape[0]
 
-            num_rows = self.train_data_x.shape[0]
+        while self.is_fitting and self.current_epoch <= self.epochs :
 
             with tqdm(total=num_rows) as pbar :
                 def row_iter(x) :
-                    pbar.update(1)
+                    num_layer = -1
 
-                    # TODO here for each row
+                    # Forward propagation
+                    for layer in self.layers :
+                        num_layer += 1
+                        if num_layer == 0 :
+                            layer.compute(input = x)
+                            continue
 
-                return np.apply_along_axis(row_iter, 0, self.train_data_x)
+                        if IS_CUDA :
+                            op_gpu = cp.asarray(self.layers[num_layer - 1].output_array)
+                            weight_gpu = cp.asarray(self.weights[num_layer - 1])
+                            layer.compute(cp.matmul(op_gpu, weight_gpu))
+                        else :
+                            op = self.layers[num_layer - 1].output_array
+                            weight = self.weights[num_layer - 1]
+                            layer.compute(np.matmul(op, weight))
+                    
+                    self.error_val = self.loss(self.layers[num_layer].output_array, self.train_data_y[num_rows])
+                    acc = np.subtract(self.train_data_y[num_rows], self.layers[num_layer].output_array)
+                    self.accuracy_val = (self.layers[num_layer].size - np.count_nonzero(acc)) / self.layers[num_layer].size
+
+                    # BackPropagation
+                    ## Compute Gradients for output layer
+                    d_loss_fun = d_losses.get(self.loss_str)
+                    d_act_fun = d_activations.get(self.layers[num_layer].activation_str)
+
+
+                    pbar.set_postfix_str(f"Accuracy: {self.accuracy_val}, Loss: {self.error_val}")
+                    pbar.update(1)    
+
+                np.apply_along_axis(row_iter, 0, self.train_data_x)
+            
+            self.current_epoch += 1
         
 
     def summary(self) -> None:
