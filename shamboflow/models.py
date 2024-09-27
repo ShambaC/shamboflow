@@ -82,6 +82,7 @@ class Sequential(BaseModel) :
 
         self.is_compiled = True
 
+
     def fit(self, train_x : np.ndarray, train_y : np.ndarray, epochs : int, **kwargs) -> None:
         """Method to train the model and fit the data
 
@@ -226,7 +227,7 @@ class Sequential(BaseModel) :
                 callback.run(self)
 
             self.current_epoch += 1
-        
+
 
     def evaluate(self, x_data : np.ndarray, y_data : np.ndarray, **kwargs) -> None:
         """Method to evaluate the model with test data
@@ -304,6 +305,7 @@ class Sequential(BaseModel) :
         print(Style.RESET_ALL)
         print(f"\nTrainable Params: {self.parameters}")
 
+
     def save(self, save_path : str) -> None:
         """Method to save the model to disk
         
@@ -323,6 +325,35 @@ class Sequential(BaseModel) :
             pickle.dump(self, f)
             print(f"Saved model to: {save_path}")
 
+    def predict(self, input_x : np.ndarray) -> np.ndarray :
+        """Method to predict data labels
+        
+        Args
+        ----
+            input_x : ndarray
+                The features of the data to predict
+        """
+        
+        num_layer = -1
+        pred_layers = self.layer
+
+        for layer in pred_layers :
+            num_layer += 1
+            if num_layer == 0 :
+                layer.compute(input = x)
+                continue
+
+            if IS_CUDA :
+                op_gpu = cp.asarray(pred_layers[num_layer - 1].output_array)
+                weight_gpu = self.weights[num_layer - 1]
+                layer.compute(cp.matmul(op_gpu, weight_gpu))
+            else :
+                op = pred_layers[num_layer - 1].output_array
+                weight = self.weights[num_layer - 1]
+                layer.compute(np.matmul(op, weight))
+        
+        return pred_layers[num_layer].output_array
+        
 
 def load_model(path_to_model : str) -> BaseModel :
     """Method to load a model from disk
