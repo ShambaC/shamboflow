@@ -224,7 +224,7 @@ class Sequential(BaseModel) :
                     pbar.set_postfix_str(f"Accuracy: {self.accuracy_val}, Loss: {self.error_val}")
                     pbar.update(1)    
 
-                np.apply_along_axis(row_iter, 0, self.train_data_x)
+                np.apply_along_axis(row_iter, 1, self.train_data_x)
             
             # Call the callback methods
             for callback in self.callbacks :
@@ -287,7 +287,7 @@ class Sequential(BaseModel) :
                 pbar.set_postfix_str(f"Accuracy: {test_accuracy_val}, Loss: {test_error_val}")
                 pbar.update(1)
 
-            np.apply_along_axis(row_iter, 0, x_data)
+            np.apply_along_axis(row_iter, 1, x_data)
 
         print(f"Accuracy: {test_accuracy_val}, Error: {test_error_val}")
 
