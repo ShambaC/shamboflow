@@ -340,7 +340,7 @@ class Sequential(BaseModel) :
         for layer in pred_layers :
             num_layer += 1
             if num_layer == 0 :
-                layer.compute(input = x)
+                layer.compute(input = input_x)
                 continue
 
             if IS_CUDA :
