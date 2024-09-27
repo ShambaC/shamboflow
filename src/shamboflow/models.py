@@ -220,7 +220,7 @@ class Sequential(BaseModel) :
                             # Bias
                             self.layers[i].bias_array = np.subtract(self.layers[i].bias_array, np.multiply(self.learning_rate, hidden_error))
 
-
+                    pbar.set_description(f"Epoch: {self.current_epoch}")
                     pbar.set_postfix_str(f"Accuracy: {self.accuracy_val}, Loss: {self.error_val}")
                     pbar.update(1)    
 
