@@ -125,7 +125,7 @@ class Sequential(BaseModel) :
 
         num_rows = self.train_data_x.shape[0] - 1
 
-        while self.is_fitting and self.current_epoch <= self.epochs :
+        while self.is_fitting and self.current_epoch < self.epochs :
 
             with tqdm(total=num_rows + 1) as pbar :
                 def row_iter(x) :
@@ -186,7 +186,7 @@ class Sequential(BaseModel) :
                             hidden_error = cp.multiply(hidden_err_midway, d_act_res_hidden)
                             self.layers[i].error_array = hidden_error
 
-                            weight_gradient_hidden = cp.multiply.outer(hidden_error, self.layers[i-1].output_array)
+                            weight_gradient_hidden = cp.multiply.outer(hidden_error, self.layers[i].output_array)
                             self.weights[i] = cp.subtract(self.weights[i], cp.multiply(self.learning_rate, weight_gradient_hidden))
 
                             # Bias
@@ -216,7 +216,7 @@ class Sequential(BaseModel) :
                             hidden_error = np.multiply(hidden_err_midway, d_act_res_hidden)
                             self.layers[i].error_array = hidden_error
 
-                            weight_gradient_hidden = np.multiply.outer(hidden_error, self.layers[i-1].output_array)
+                            weight_gradient_hidden = np.multiply.outer(hidden_error, self.layers[i].output_array)
                             self.weights[i] = np.subtract(self.weights[i], np.multiply(self.learning_rate, weight_gradient_hidden))
 
                             # Bias
@@ -230,7 +230,7 @@ class Sequential(BaseModel) :
             
             # Call the callback methods
             for callback in self.callbacks :
-                callback.run(self)
+                callback.run(model=self)
 
             self.current_epoch += 1
 
