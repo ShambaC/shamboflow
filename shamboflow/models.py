@@ -153,7 +153,7 @@ class Sequential(BaseModel) :
                     if IS_CUDA :
                         ## Compute Gradients for output layer
                         d_loss_res_gpu = cp.asarray(d_loss_fun(self.layers[num_layer].output_array, self.train_data_y[num_rows]))
-                        d_act_res_gpu = cp.asarray(d_act_fun(self.layers[num_layer].midway))
+                        d_act_res_gpu = cp.asarray(d_act_fun(self.layers[num_layer].midway, leakyrelu_slope=self.layers[num_layer].leakyrelu_slope))
                         gradient_op = cp.multiply(d_loss_res_gpu, d_act_res_gpu)
                         self.layers[num_layer].error_array = gradient_op
                         weight_gradient = cp.multiply.outer(gradient_op, self.layers[num_layer - 1].output_array)
@@ -165,13 +165,24 @@ class Sequential(BaseModel) :
                         self.layers[num_layer].bias_array = cp.subtract(self.layers[num_layer].bias_array, cp.multiply(self.learning_rate, gradient_op))
 
                         # Hidden layers
-                        
+                        for i in range(num_layer - 1, 0, -1) :
+                            error_next = self.layers[i+1].error_array
+                            d_act_res_hidden = cp.asarray(d_act_fun(self.layers[i].midway, leakyrelu_slope=self.layers[i].leakyrelu_slope))
+                            hidden_weight = cp.transpose(self.weights[i-1])
+                            hidden_err_midway = cp.matmul(error_next, hidden_weight)
+                            hidden_error = cp.multiply(hidden_err_midway, d_act_res_hidden)
+                            self.layers[i].error_array = hidden_error
 
+                            weight_gradient_hidden = cp.multiply.outer(hidden_error, self.layers[i-1].output_array)
+                            self.weights[i-1] = cp.subtract(self.weights[i-1], cp.multiply(self.learning_rate, weight_gradient_hidden))
+
+                            # Bias
+                            self.layers[i].bias_array = cp.subtract(self.layers[i].bias_array, cp.multiply(self.learning_rate, hidden_error))
                         
                     else :
                         ## Compute Gradients for output layer
                         d_loss_res = d_loss_fun(self.layers[num_layer].output_array, self.train_data_y[num_rows])
-                        d_act_res = d_act_fun(self.layers[num_layer].midway)
+                        d_act_res = d_act_fun(self.layers[num_layer].midway, leakyrelu_slope=self.layers[num_layer].leakyrelu_slope)
                         gradient_op = np.multiply(d_loss_res, d_act_res)
                         self.layers[num_layer].error_array = gradient_op
                         weight_gradient = np.multiply.outer(gradient_op, self.layers[num_layer - 1].output_array)
@@ -181,6 +192,21 @@ class Sequential(BaseModel) :
                         # gradient_op is the bias gradient itself
                         # Adjust bias
                         self.layers[num_layer].bias_array = np.subtract(self.layers[num_layer].bias_array, np.multiply(self.learning_rate, gradient_op))
+
+                        # Hidden layers
+                        for i in range(num_layer - 1, 0, -1) :
+                            error_next = self.layers[i+1].error_array
+                            d_act_res_hidden = d_act_fun(self.layers[i].midway, leakyrelu_slope=self.layers[i].leakyrelu_slope)
+                            hidden_weight = self.weights[i-1]
+                            hidden_err_midway = np.matmul(error_next, hidden_weight)
+                            hidden_error = np.multiply(hidden_err_midway, d_act_res_hidden)
+                            self.layers[i].error_array = hidden_error
+
+                            weight_gradient_hidden = np.multiply.outer(hidden_error, self.layers[i-1].output_array)
+                            self.weights[i-1] = np.subtract(self.weights[i-1], np.multiply(self.learning_rate, weight_gradient_hidden))
+
+                            # Bias
+                            self.layers[i].bias_array = np.subtract(self.layers[i].bias_array, np.multiply(self.learning_rate, hidden_error))
 
 
                     pbar.set_postfix_str(f"Accuracy: {self.accuracy_val}, Loss: {self.error_val}")
