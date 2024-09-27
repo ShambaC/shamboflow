@@ -147,23 +147,40 @@ class Sequential(BaseModel) :
                     self.accuracy_val = (self.layers[num_layer].size - np.count_nonzero(acc)) / self.layers[num_layer].size
 
                     # BackPropagation
-                    ## Compute Gradients for output layer
                     d_loss_fun = d_losses.get(self.loss_str)
                     d_act_fun = d_activations.get(self.layers[num_layer].activation_str)
 
                     if IS_CUDA :
+                        ## Compute Gradients for output layer
                         d_loss_res_gpu = cp.asarray(d_loss_fun(self.layers[num_layer].output_array, self.train_data_y[num_rows]))
                         d_act_res_gpu = cp.asarray(d_act_fun(self.layers[num_layer].midway))
                         gradient_op = cp.multiply(d_loss_res_gpu, d_act_res_gpu)
+                        self.layers[num_layer].error_array = gradient_op
                         weight_gradient = cp.multiply.outer(gradient_op, self.layers[num_layer - 1].output_array)
                         self.weights[num_layer - 1] = cp.subtract(self.weights[num_layer - 1], cp.multiply(self.learning_rate, weight_gradient))
+
+                        ## Compute Gradient for output layer bias
+                        # gradient_op is the bias gradient itself
+                        # Adjust bias
+                        self.layers[num_layer].bias_array = cp.subtract(self.layers[num_layer].bias_array, cp.multiply(self.learning_rate, gradient_op))
+
+                        # Hidden layers
+                        
+
                         
                     else :
+                        ## Compute Gradients for output layer
                         d_loss_res = d_loss_fun(self.layers[num_layer].output_array, self.train_data_y[num_rows])
                         d_act_res = d_act_fun(self.layers[num_layer].midway)
                         gradient_op = np.multiply(d_loss_res, d_act_res)
+                        self.layers[num_layer].error_array = gradient_op
                         weight_gradient = np.multiply.outer(gradient_op, self.layers[num_layer - 1].output_array)
                         self.weights[num_layer - 1] = np.subtract(self.weights[num_layer - 1], np.multiply(self.learning_rate, weight_gradient))
+
+                        ## Compute Gradient for output layer bias
+                        # gradient_op is the bias gradient itself
+                        # Adjust bias
+                        self.layers[num_layer].bias_array = np.subtract(self.layers[num_layer].bias_array, np.multiply(self.learning_rate, gradient_op))
 
 
                     pbar.set_postfix_str(f"Accuracy: {self.accuracy_val}, Loss: {self.error_val}")
