@@ -123,11 +123,11 @@ class Sequential(BaseModel) :
         if 'callbacks' in kwargs :
             self.callbacks = kwargs['callbacks']
 
-        num_rows = self.train_data_x.shape[0]
+        num_rows = self.train_data_x.shape[0] - 1
 
         while self.is_fitting and self.current_epoch <= self.epochs :
 
-            with tqdm(total=num_rows) as pbar :
+            with tqdm(total=num_rows + 1) as pbar :
                 def row_iter(x) :
                     num_layer = -1
 
@@ -178,15 +178,16 @@ class Sequential(BaseModel) :
 
                         # Hidden layers
                         for i in range(num_layer - 1, 0, -1) :
+                            d_act_fun = d_activations.get(self.layers[i].activation_str)
                             error_next = self.layers[i+1].error_array
                             d_act_res_hidden = cp.asarray(d_act_fun(self.layers[i].midway, leakyrelu_slope=self.layers[i].leakyrelu_slope))
-                            hidden_weight = cp.transpose(self.weights[i-1])
+                            hidden_weight = cp.transpose(self.weights[i])
                             hidden_err_midway = cp.matmul(error_next, hidden_weight)
                             hidden_error = cp.multiply(hidden_err_midway, d_act_res_hidden)
                             self.layers[i].error_array = hidden_error
 
                             weight_gradient_hidden = cp.multiply.outer(hidden_error, self.layers[i-1].output_array)
-                            self.weights[i-1] = cp.subtract(self.weights[i-1], cp.multiply(self.learning_rate, weight_gradient_hidden))
+                            self.weights[i] = cp.subtract(self.weights[i], cp.multiply(self.learning_rate, weight_gradient_hidden))
 
                             # Bias
                             self.layers[i].bias_array = cp.subtract(self.layers[i].bias_array, cp.multiply(self.learning_rate, hidden_error))
@@ -207,15 +208,16 @@ class Sequential(BaseModel) :
 
                         # Hidden layers
                         for i in range(num_layer - 1, 0, -1) :
+                            d_act_fun = d_activations.get(self.layers[i].activation_str)
                             error_next = self.layers[i+1].error_array
                             d_act_res_hidden = d_act_fun(self.layers[i].midway, leakyrelu_slope=self.layers[i].leakyrelu_slope)
-                            hidden_weight = self.weights[i-1]
+                            hidden_weight = self.weights[i]
                             hidden_err_midway = np.matmul(error_next, hidden_weight)
                             hidden_error = np.multiply(hidden_err_midway, d_act_res_hidden)
                             self.layers[i].error_array = hidden_error
 
                             weight_gradient_hidden = np.multiply.outer(hidden_error, self.layers[i-1].output_array)
-                            self.weights[i-1] = np.subtract(self.weights[i-1], np.multiply(self.learning_rate, weight_gradient_hidden))
+                            self.weights[i] = np.subtract(self.weights[i], np.multiply(self.learning_rate, weight_gradient_hidden))
 
                             # Bias
                             self.layers[i].bias_array = np.subtract(self.layers[i].bias_array, np.multiply(self.learning_rate, hidden_error))

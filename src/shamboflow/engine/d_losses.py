@@ -14,7 +14,7 @@ def d_MSE(pred_val : np.ndarray, obs_val : np.ndarray) -> np.ndarray :
     if IS_CUDA :
         pred_val = cp.asarray(pred_val)
         obs_val = cp.asarray(obs_val)
-        res = cp.subtract(obs_val - pred_val)
+        res = cp.subtract(obs_val, pred_val)
         return cp.asnumpy(res)
     
     return np.subtract(obs_val, pred_val)

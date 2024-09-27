@@ -14,11 +14,11 @@ def d_sigmoid(x : np.ndarray, **kwargs) -> np.ndarray :
     """
 
     if IS_CUDA :
-        res_sig = cp.asarray(activations.signmoid(x))
+        res_sig = cp.asarray(activations.sigmoid(x))
         res_d_sig = cp.multiply(res_sig, cp.subtract(1, res_sig))
         return cp.asnumpy(res_d_sig)
     
-    res_sig = activations.signmoid(x)
+    res_sig = activations.sigmoid(x)
     res_d_sig = np.multiply(res_sig, np.subtract(1, res_sig))
     return res_d_sig
 
