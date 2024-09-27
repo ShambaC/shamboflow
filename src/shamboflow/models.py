@@ -339,7 +339,7 @@ class Sequential(BaseModel) :
         """
         
         num_layer = -1
-        pred_layers = self.layer
+        pred_layers = self.layers
 
         for layer in pred_layers :
             num_layer += 1
