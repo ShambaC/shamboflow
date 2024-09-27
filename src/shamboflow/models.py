@@ -100,7 +100,7 @@ class Sequential(BaseModel) :
             train_y : ndarray
                 The label of the dataset
             epochs : int
-                THe number of steps to run the training for
+                The number of steps to run the training for
             
         Kwargs
         ------
@@ -320,10 +320,6 @@ class Sequential(BaseModel) :
         """
 
         import pickle
-        import os
-
-        if not os.path.isfile(save_path) :
-            save_path += "/model.meow"
 
         with open(save_path, 'wb') as f :
             pickle.dump(self, f)

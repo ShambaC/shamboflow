@@ -59,7 +59,7 @@ class BaseModel :
 
         self.metrics = {'loss' : 0.0, 'acc' : 0.0, 'val_loss' : 0.0, 'val_acc' : 0.0}
         self.current_epoch = 0
-        self.is_fitting = False
+        self.is_fitting = True
 
         self.parameters = 0
 

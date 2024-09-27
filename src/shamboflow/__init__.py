@@ -25,6 +25,7 @@ try :
         print(f"Name: {props['name'].decode()}")
         print(f"Compute Capability: {props['major']}.{props['minor']}")
         print(f"Total Memory: {props['totalGlobalMem'] / 1e9:.2f} GB")
+        print("\n-----------------------------------------------\n")
 except :
     pass
 
