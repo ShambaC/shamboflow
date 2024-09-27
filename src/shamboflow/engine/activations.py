@@ -2,7 +2,7 @@
 
 import numpy as np
 import cupy as cp
-from src.shamboflow import IS_CUDA
+from shamboflow import IS_CUDA
 
 def sigmoid(x : np.ndarray, **kwargs) -> np.ndarray :
     """Sigmoid acitvation function

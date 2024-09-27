@@ -3,7 +3,7 @@
 import numpy as np
 import cupy as cp
 
-from src.shamboflow import IS_CUDA
+from shamboflow import IS_CUDA
 
 def d_MSE(pred_val : np.ndarray, obs_val : np.ndarray) -> np.ndarray :
     """Derivative of Mean Squared Error loss function

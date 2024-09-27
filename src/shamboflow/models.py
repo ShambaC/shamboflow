@@ -3,11 +3,11 @@
 import numpy as np
 import cupy as cp
 
-from src.shamboflow import IS_CUDA
-from src.shamboflow.engine.base_layers import BaseLayer
-from src.shamboflow.engine.base_models import BaseModel
-from src.shamboflow.engine import losses
-from src.shamboflow.engine import d_losses, d_activations
+from shamboflow import IS_CUDA
+from shamboflow.engine.base_layers import BaseLayer
+from shamboflow.engine.base_models import BaseModel
+from shamboflow.engine import losses
+from shamboflow.engine import d_losses, d_activations
 
 from tqdm import tqdm, trange
 from colorama import Fore, Back, Style

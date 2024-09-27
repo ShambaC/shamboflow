@@ -1,6 +1,6 @@
 """Base class for models"""
 
-from src.shamboflow.engine.base_layers import BaseLayer
+from shamboflow.engine.base_layers import BaseLayer
 
 class BaseModel :
     """The Base class for models

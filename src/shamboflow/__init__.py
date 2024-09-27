@@ -32,6 +32,6 @@ except :
 from colorama import just_fix_windows_console
 just_fix_windows_console()
 
-from src.shamboflow import models
-from src.shamboflow import layers
-from src.shamboflow import callbacks
+from shamboflow import models
+from shamboflow import layers
+from shamboflow import callbacks
