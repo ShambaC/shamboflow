@@ -4,6 +4,7 @@ import numpy as np
 import cupy as cp
 
 from src.shamboflow import IS_CUDA
+from src.shamboflow.engine.base_layers import BaseLayer
 from src.shamboflow.engine.base_models import BaseModel
 from src.shamboflow.engine import losses
 from src.shamboflow.engine import d_losses, d_activations
@@ -24,6 +25,9 @@ class Sequential(BaseModel) :
 
     def __init__(self, **kwargs) -> None:
         super().__init__(**kwargs)
+
+    def add(self, layer: BaseLayer) -> None:
+        return super().add(layer)
 
     def compile(self, loss : str, learning_rate : float = 0.001, verbose : bool = False, **kwargs) -> None:
         """Method to initialize and compile the model
