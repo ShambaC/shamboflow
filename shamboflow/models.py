@@ -146,6 +146,13 @@ class Sequential(BaseModel) :
                     acc = np.subtract(self.train_data_y[num_rows], self.layers[num_layer].output_array)
                     self.accuracy_val = (self.layers[num_layer].size - np.count_nonzero(acc)) / self.layers[num_layer].size
 
+                    self.metrics['acc'] = self.accuracy_val
+                    self.metrics['loss'] = self.error_val
+
+                    # Validation
+                    if self.has_validation_data :
+                        self.evaluate(self.validation_x, self.validation_y, is_validation=True)
+
                     # BackPropagation
                     d_loss_fun = d_losses.get(self.loss_str)
                     d_act_fun = d_activations.get(self.layers[num_layer].activation_str)
@@ -214,8 +221,71 @@ class Sequential(BaseModel) :
 
                 np.apply_along_axis(row_iter, 0, self.train_data_x)
             
+            # Call the callback methods
+            for callback in self.callbacks :
+                callback.run(self)
+
             self.current_epoch += 1
         
+
+    def evaluate(self, x_data : np.ndarray, y_data : np.ndarray, **kwargs) -> None:
+        """Method to evaluate the model with test data
+        
+        Args
+        ----
+            x_data : ndarray
+                The features of the dataset
+            y_data : ndarray
+                The label of the dataset
+            kwargs : dict
+                allowed arg -> is_validation => bool
+        """
+
+        is_val = False
+        if 'is_validation' in kwargs :
+            is_val = kwargs['is_validation']
+
+        num_rows = x_data.shape[0]
+        test_error_val = 0.0
+        test_accuracy_val = 0.0
+
+        with tqdm(total=num_rows) as pbar :
+            def row_iter(x) :
+                num_layer = -1
+                global test_error_val
+                global test_accuracy_val
+
+                for layer in self.layers :
+                    num_layer += 1
+                    if num_layer == 0 :
+                        layer.compute(input = x)
+                        continue
+
+                    if IS_CUDA :
+                        op_gpu = cp.asarray(self.layers[num_layer - 1].output_array)
+                        weight_gpu = self.weights[num_layer - 1]
+                        layer.compute(cp.matmul(op_gpu, weight_gpu))
+                    else :
+                        op = self.layers[num_layer - 1].output_array
+                        weight = self.weights[num_layer - 1]
+                        layer.compute(np.matmul(op, weight))
+                    
+                test_error_val = self.loss(self.layers[num_layer].output_array, y_data[num_rows])
+                acc = np.subtract(y_data[num_rows], self.layers[num_layer].output_array)
+                test_accuracy_val = (self.layers[num_layer].size - np.count_nonzero(acc)) / self.layers[num_layer].size
+
+                if is_val :
+                    self.metrics['val_loss'] = test_error_val
+                    self.metrics['val_acc'] = test_accuracy_val
+                    return
+
+                pbar.set_postfix_str(f"Accuracy: {test_accuracy_val}, Loss: {test_error_val}")
+                pbar.update(1)
+
+            np.apply_along_axis(row_iter, 0, x_data)
+
+        print(f"Accuracy: {test_accuracy_val}, Error: {test_error_val}")
+
 
     def summary(self) -> None:
         """Prints a summary of the model once compiled"""
