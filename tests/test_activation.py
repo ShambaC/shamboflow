@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from shamboflow.engine.activations import signmoid, relu, tanh, leakyrelu, softmax
+from src.shamboflow.engine.activations import signmoid, relu, tanh, leakyrelu, softmax
 
 class TestActivation(unittest.TestCase) :
 

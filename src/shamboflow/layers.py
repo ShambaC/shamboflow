@@ -3,9 +3,9 @@
 import numpy as np
 import cupy as cp
 
-from shamboflow import IS_CUDA
-from shamboflow.engine.base_layers import BaseLayer
-from shamboflow.engine.activations import get
+from src.shamboflow import IS_CUDA
+from src.shamboflow.engine.base_layers import BaseLayer
+from src.shamboflow.engine.activations import get
 
 class Dense(BaseLayer) :
     """A Simple 1D layer

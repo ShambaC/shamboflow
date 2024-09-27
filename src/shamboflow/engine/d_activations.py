@@ -3,8 +3,8 @@
 import numpy as np
 import cupy as cp
 
-from shamboflow import IS_CUDA
-from shamboflow.engine import activations
+from src.shamboflow import IS_CUDA
+from src.shamboflow.engine import activations
 
 def d_sigmoid(x : np.ndarray, **kwargs) -> np.ndarray :
     """The partial derivative of sigmoid function

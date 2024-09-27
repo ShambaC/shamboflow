@@ -2,8 +2,8 @@
 
 from colorama import Fore, Back, Style
 
-from shamboflow.engine.base_callback import BaseCallback
-from shamboflow.engine.base_models import BaseModel
+from src.shamboflow.engine.base_callback import BaseCallback
+from src.shamboflow.engine.base_models import BaseModel
 
 class EarlyStopping(BaseCallback) :
     """Early Stopper

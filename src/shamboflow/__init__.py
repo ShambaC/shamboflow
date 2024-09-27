@@ -1,4 +1,9 @@
-"""Startup checks and constants here"""
+"""Shamboflow : a Tensorflow competitor
+
+A state of the art machine learning library with blazing fast speeds and GPU support
+"""
+
+# Startup checks and constants here
 
 # Constant to decide whether to use GPU for computations
 IS_CUDA = False
@@ -26,3 +31,7 @@ except :
 # Add Colorama fixes to terminal
 from colorama import just_fix_windows_console
 just_fix_windows_console()
+
+from src.shamboflow import models
+from src.shamboflow import layers
+from src.shamboflow import callbacks
