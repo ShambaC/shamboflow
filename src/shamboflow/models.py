@@ -141,7 +141,7 @@ class Sequential(BaseModel) :
                         if IS_CUDA :
                             op_gpu = cp.asarray(self.layers[num_layer - 1].output_array)
                             weight_gpu = self.weights[num_layer - 1]
-                            layer.compute(cp.matmul(op_gpu, weight_gpu))
+                            layer.compute(cp.asnumpy(cp.matmul(op_gpu, weight_gpu)))
                         else :
                             op = self.layers[num_layer - 1].output_array
                             weight = self.weights[num_layer - 1]
@@ -169,15 +169,15 @@ class Sequential(BaseModel) :
                         gradient_op = cp.multiply(d_loss_res_gpu, d_act_res_gpu)
                         self.layers[num_layer].error_array = gradient_op
                         weight_gradient = cp.multiply.outer(gradient_op, self.layers[num_layer - 1].output_array)
-                        self.weights[num_layer - 1] = cp.subtract(self.weights[num_layer - 1], cp.multiply(self.learning_rate, weight_gradient))
+                        self.weights[num_layer - 1] = cp.add(self.weights[num_layer - 1], cp.multiply(self.learning_rate, weight_gradient))
 
                         ## Compute Gradient for output layer bias
                         # gradient_op is the bias gradient itself
                         # Adjust bias
-                        self.layers[num_layer].bias_array = cp.subtract(self.layers[num_layer].bias_array, cp.multiply(self.learning_rate, gradient_op))
+                        self.layers[num_layer].bias_array = cp.add(self.layers[num_layer].bias_array, cp.multiply(self.learning_rate, gradient_op))
 
                         # Hidden layers
-                        for i in range(num_layer - 1, 0, -1) :
+                        for i in range(len(self.layers) - 2, 0, -1) :
                             d_act_fun = d_activations.get(self.layers[i].activation_str)
                             error_next = self.layers[i+1].error_array
                             d_act_res_hidden = cp.asarray(d_act_fun(self.layers[i].midway, leakyrelu_slope=self.layers[i].leakyrelu_slope))
@@ -187,10 +187,10 @@ class Sequential(BaseModel) :
                             self.layers[i].error_array = hidden_error
 
                             weight_gradient_hidden = cp.multiply.outer(hidden_error, self.layers[i].output_array)
-                            self.weights[i] = cp.subtract(self.weights[i], cp.multiply(self.learning_rate, weight_gradient_hidden))
+                            self.weights[i-1] = cp.add(self.weights[i-1], cp.multiply(self.learning_rate, weight_gradient_hidden))
 
                             # Bias
-                            self.layers[i].bias_array = cp.subtract(self.layers[i].bias_array, cp.multiply(self.learning_rate, hidden_error))
+                            self.layers[i].bias_array = cp.add(self.layers[i].bias_array, cp.multiply(self.learning_rate, hidden_error))
                         
                     else :
                         ## Compute Gradients for output layer
@@ -199,15 +199,15 @@ class Sequential(BaseModel) :
                         gradient_op = np.multiply(d_loss_res, d_act_res)
                         self.layers[num_layer].error_array = gradient_op
                         weight_gradient = np.multiply.outer(gradient_op, self.layers[num_layer - 1].output_array)
-                        self.weights[num_layer - 1] = np.subtract(self.weights[num_layer - 1], np.multiply(self.learning_rate, weight_gradient))
+                        self.weights[num_layer - 1] = np.add(self.weights[num_layer - 1], np.multiply(self.learning_rate, weight_gradient))
 
                         ## Compute Gradient for output layer bias
                         # gradient_op is the bias gradient itself
                         # Adjust bias
-                        self.layers[num_layer].bias_array = np.subtract(self.layers[num_layer].bias_array, np.multiply(self.learning_rate, gradient_op))
+                        self.layers[num_layer].bias_array = np.add(self.layers[num_layer].bias_array, np.multiply(self.learning_rate, gradient_op))
 
                         # Hidden layers
-                        for i in range(num_layer - 1, 0, -1) :
+                        for i in range(len(self.layers) - 2, 0, -1) :
                             d_act_fun = d_activations.get(self.layers[i].activation_str)
                             error_next = self.layers[i+1].error_array
                             d_act_res_hidden = d_act_fun(self.layers[i].midway, leakyrelu_slope=self.layers[i].leakyrelu_slope)
@@ -217,10 +217,10 @@ class Sequential(BaseModel) :
                             self.layers[i].error_array = hidden_error
 
                             weight_gradient_hidden = np.multiply.outer(hidden_error, self.layers[i].output_array)
-                            self.weights[i] = np.subtract(self.weights[i], np.multiply(self.learning_rate, weight_gradient_hidden))
+                            self.weights[i-1] = np.add(self.weights[i-1], np.multiply(self.learning_rate, weight_gradient_hidden))
 
                             # Bias
-                            self.layers[i].bias_array = np.subtract(self.layers[i].bias_array, np.multiply(self.learning_rate, hidden_error))
+                            self.layers[i].bias_array = np.add(self.layers[i].bias_array, np.multiply(self.learning_rate, hidden_error))
 
                     pbar.set_description(f"Epoch: {self.current_epoch}")
                     pbar.set_postfix_str(f"Accuracy: {self.accuracy_val}, Loss: {self.error_val}")

@@ -36,12 +36,12 @@ def MSE(pred_val : np.ndarray, obs_val : np.ndarray) -> float :
         obs_val = cp.asarray(obs_val)
         pred_val = cp.asarray(pred_val)
         sq_err = cp.power(cp.subtract(obs_val, pred_val), 2)
-        mse_val = (1 / sq_err.size) * cp.sum(sq_err)
+        mse_val = (1 / 2) * cp.sum(sq_err)
 
         return mse_val.item()
 
-    sq_err = np.pow(np.subtract(obs_val, pred_val), 2)
-    mse_val = (1 / sq_err.size) * np.sum(sq_err)
+    sq_err = np.power(np.subtract(obs_val, pred_val), 2)
+    mse_val = (1 / 2) * np.sum(sq_err)
 
     return mse_val.item()
 
