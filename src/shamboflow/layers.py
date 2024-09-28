@@ -36,7 +36,12 @@ class Dense(BaseLayer) :
             size : int
                 The number of neurons in the layer
             activation : str
-                The activation function to use for the layer
+                The activation function to use for the layer. Available => `sigmoid`, `tanh`, `relu`, `leakyrelu`
+
+        Kwargs
+        ------
+            leakyrelu_slope : float
+                The slope value if leakyrelu is used as the activation function
         """
         super().__init__("Dense", activation != None)
 

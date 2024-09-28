@@ -38,7 +38,7 @@ class Sequential(BaseModel) :
         Args
         ----
             loss : str
-                The loss function to use
+                The loss function to use. Available => `mean_squared_error`
             learning_rate : float
                 The learning_rate to use while fitting data
             verbose : bool
@@ -101,6 +101,7 @@ class Sequential(BaseModel) :
                 The label of the dataset
             epochs : int
                 The number of steps to run the training for
+            
             
         Kwargs
         ------
@@ -311,7 +312,7 @@ class Sequential(BaseModel) :
         print(Fore.WHITE + "Layers: ")
 
         for layer in self.layers :
-            print("-> " + Fore.CYAN + layer.name + Fore.WHITE + f"Neurons: {layer.size} Activation: {layer.activation_str} Trainable: {layer.trainable}")
+            print("-> " + Fore.CYAN + layer.name + Fore.WHITE + f"Neurons: {layer.size} Activation: {layer.activation_str if layer.trainable else "Not trainable"} Trainable: {layer.trainable}")
 
         print(Style.RESET_ALL)
         print(f"\nTrainable Params: {self.parameters}")
