@@ -191,7 +191,7 @@ class Sequential(BaseModel) :
                             hidden_error = cp.multiply(hidden_err_midway, d_act_res_hidden)
                             self.layers[i].error_array = hidden_error
 
-                            weight_gradient_hidden = cp.multiply.outer(hidden_error, self.layers[i].output_array)
+                            weight_gradient_hidden = cp.multiply.outer(hidden_error, self.layers[i-1].output_array)
                             self.weights[i-1] = cp.add(self.weights[i-1], cp.multiply(self.learning_rate, weight_gradient_hidden).T)
 
                             # Bias
@@ -221,7 +221,7 @@ class Sequential(BaseModel) :
                             hidden_error = np.multiply(hidden_err_midway, d_act_res_hidden)
                             self.layers[i].error_array = hidden_error
 
-                            weight_gradient_hidden = np.multiply.outer(hidden_error, self.layers[i].output_array)
+                            weight_gradient_hidden = np.multiply.outer(hidden_error, self.layers[i-1].output_array)
                             self.weights[i-1] = np.add(self.weights[i-1], np.multiply(self.learning_rate, weight_gradient_hidden).T)
 
                             # Bias
