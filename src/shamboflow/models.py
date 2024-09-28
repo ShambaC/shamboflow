@@ -111,6 +111,11 @@ class Sequential(BaseModel) :
         
         """
 
+        if not self.is_compiled :
+            print(Fore.WHITE + Back.RED + "Model not compiled ! Compile the model first.")
+            print(Style.RESET_ALL)
+            return
+
         self.train_data_x = train_x
         self.train_data_y = train_y
         self.epochs = epochs
@@ -169,7 +174,7 @@ class Sequential(BaseModel) :
                         gradient_op = cp.multiply(d_loss_res_gpu, d_act_res_gpu)
                         self.layers[num_layer].error_array = gradient_op
                         weight_gradient = cp.multiply.outer(gradient_op, self.layers[num_layer - 1].output_array)
-                        self.weights[num_layer - 1] = cp.add(self.weights[num_layer - 1], cp.multiply(self.learning_rate, weight_gradient))
+                        self.weights[num_layer - 1] = cp.add(self.weights[num_layer - 1], cp.multiply(self.learning_rate, weight_gradient).T)
 
                         ## Compute Gradient for output layer bias
                         # gradient_op is the bias gradient itself
@@ -187,7 +192,7 @@ class Sequential(BaseModel) :
                             self.layers[i].error_array = hidden_error
 
                             weight_gradient_hidden = cp.multiply.outer(hidden_error, self.layers[i].output_array)
-                            self.weights[i-1] = cp.add(self.weights[i-1], cp.multiply(self.learning_rate, weight_gradient_hidden))
+                            self.weights[i-1] = cp.add(self.weights[i-1], cp.multiply(self.learning_rate, weight_gradient_hidden).T)
 
                             # Bias
                             self.layers[i].bias_array = cp.add(self.layers[i].bias_array, cp.multiply(self.learning_rate, hidden_error))
@@ -199,7 +204,7 @@ class Sequential(BaseModel) :
                         gradient_op = np.multiply(d_loss_res, d_act_res)
                         self.layers[num_layer].error_array = gradient_op
                         weight_gradient = np.multiply.outer(gradient_op, self.layers[num_layer - 1].output_array)
-                        self.weights[num_layer - 1] = np.add(self.weights[num_layer - 1], np.multiply(self.learning_rate, weight_gradient))
+                        self.weights[num_layer - 1] = np.add(self.weights[num_layer - 1], np.multiply(self.learning_rate, weight_gradient).T)
 
                         ## Compute Gradient for output layer bias
                         # gradient_op is the bias gradient itself
@@ -217,7 +222,7 @@ class Sequential(BaseModel) :
                             self.layers[i].error_array = hidden_error
 
                             weight_gradient_hidden = np.multiply.outer(hidden_error, self.layers[i].output_array)
-                            self.weights[i-1] = np.add(self.weights[i-1], np.multiply(self.learning_rate, weight_gradient_hidden))
+                            self.weights[i-1] = np.add(self.weights[i-1], np.multiply(self.learning_rate, weight_gradient_hidden).T)
 
                             # Bias
                             self.layers[i].bias_array = np.add(self.layers[i].bias_array, np.multiply(self.learning_rate, hidden_error))
