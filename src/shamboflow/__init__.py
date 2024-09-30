@@ -5,8 +5,8 @@ A state of the art machine learning library with blazing fast speeds and GPU sup
 
 # Startup checks and constants here
 
-# Constant to decide whether to use GPU for computations
 IS_CUDA = False
+"""Constant to decide whether to use GPU for computations."""
 try :
     import cupy as cp
     IS_CUDA = cp.cuda.is_available()
