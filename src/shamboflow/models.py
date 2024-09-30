@@ -312,7 +312,7 @@ class Sequential(BaseModel) :
         print(Fore.WHITE + "Layers: ")
 
         for layer in self.layers :
-            print("-> " + Fore.CYAN + layer.name + Fore.WHITE + f"Neurons: {layer.size} Activation: {layer.activation_str if layer.trainable else "Not trainable"} Trainable: {layer.trainable}")
+            print("-> " + Fore.CYAN + layer.name + Fore.WHITE + f" Neurons: {layer.size} Activation: {layer.activation_str if layer.trainable else 'Not trainable'} Trainable: {layer.trainable}")
 
         print(Style.RESET_ALL)
         print(f"\nTrainable Params: {self.parameters}")
