@@ -18,7 +18,9 @@ ShamboFlow is super fast drop in replacemnet for TensorFlow (Read adds nothing, 
 On a serious note, I always wanted to implement a neural network using just numpy and no additional libraries and this gave me an excuse to do so. And so I did. I made this in a week. Learned a lot of stuff in the process and it was a stressfull and fun experience. This library is dependent on numpy as stated but also uses cupy to add GPU support. Other two dependencies are tqdm for progress bar and colorama for colorful texts. I will probably work more on this as I have already put in quite some effort.
 
 # Documentation
-![Static Badge](https://img.shields.io/badge/Coming-Soon-black?style=for-the-badge)
+[![Static Badge](https://img.shields.io/badge/API-docs-black?style=for-the-badge)](https://shambac.github.io/shamboflow/)
+
+[![Static Badge](https://img.shields.io/badge/Guide-In_Progress-black?style=for-the-badge)](https://pingutinguorg.gitbook.io/shamboflow)
 
 # Install
 
