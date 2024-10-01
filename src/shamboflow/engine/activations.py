@@ -11,13 +11,13 @@ def sigmoid(x : np.ndarray, **kwargs) -> np.ndarray :
     It returns a value between 0 and 1 but never 0 and 1.
     It suffers from the vanishing gradient issue.
 
-    `sigmoid(x) = 1 / (1 + exp(-x))`
+    ``sigmoid(x) = 1 / (1 + exp(-x))``
 
     Range: (0, 1)
 
     Args
-    x:
-        The input vector to apply activation function over.
+        x:
+            The input vector to apply activation function over.
 
     Returns
         Value after sigmoid is applied on x
@@ -37,13 +37,13 @@ def sigmoid(x : np.ndarray, **kwargs) -> np.ndarray :
 def tanh(x : np.ndarray, **kwargs) -> np.ndarray :
     """Hyperbolic tangent activation function
 
-    `tanh(x) = (exp(x) - exp(-x)) / (exp(x) + exp(-x))`
+    ``tanh(x) = (exp(x) - exp(-x)) / (exp(x) + exp(-x))``
 
     Range: (-1, 1)
 
     Args
-    x:
-        The input vector to apply activation function over.
+        x:
+            The input vector to apply activation function over.
 
     Returns
         Value after tanh is applied on x
@@ -70,13 +70,13 @@ def relu(x : np.ndarray, **kwargs) -> np.ndarray :
     the issue by not having any upper limit. But that comes with
     its own problems.
 
-    `ReLU(x) = max(0, x)`
+    ``ReLU(x) = max(0, x)``
 
     Range: [0, inf)
 
     Args
-    x:
-        The input vector to apply activation function over.
+        x:
+            The input vector to apply activation function over.
 
     Returns
         Value after relu is applied on x
@@ -100,13 +100,13 @@ def leakyrelu(x : np.ndarray, leakyrelu_slope : float, **kwargs) -> np.ndarray :
     to ReLU. ReLU would simply discard
     them, but leaky relu uses them as well.
 
-    `leakyReLU(x, slope) = if (x > 0) => x, if (x <= 0) => slope * x`
+    ``leakyReLU(x, slope) = if (x > 0) => x, if (x <= 0) => slope * x``
 
     Range: (-inf, inf)
 
     Args
-    x:
-        The input vector to apply activation function over.
+        x:
+            The input vector to apply activation function over.
     slope:
         slope of the line that provides output for negative inputs
 
@@ -135,8 +135,8 @@ def softmax(x : np.ndarray, **kwargs) -> np.ndarray :
     Range: (0, 1)
 
     Args
-    x:
-        The input vector to apply activation function over.
+        x:
+            The input vector to apply activation function over.
 
     Returns
         Value after softmax is applied on x

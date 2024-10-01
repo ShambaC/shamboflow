@@ -37,7 +37,7 @@ class Sequential(BaseModel) :
 
         Args
             loss:
-                The loss function to use. Available => `mean_squared_error`
+                The loss function to use. Available => ``mean_squared_error``
             learning_rate:
                 The learning_rate to use while fitting data
             verbose:

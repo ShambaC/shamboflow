@@ -10,7 +10,7 @@ def d_sigmoid(x : np.ndarray, **kwargs) -> np.ndarray :
     """The partial derivative of sigmoid function
     
     If sigmoid is g(x)
-    `g'(x) = g(x)(1 - g(x))` 
+    ``g'(x) = g(x)(1 - g(x))`` 
     """
 
     if IS_CUDA :
@@ -26,7 +26,7 @@ def d_tanh(x : np.ndarray, **kwargs) -> np.ndarray :
     """The partial derivative for hyperbolic tangent
     
     If tanh is g(x)
-    `g'(x) = 1 - g(x)^2`
+    ``g'(x) = 1 - g(x)^2``
     
     """
 
@@ -42,7 +42,7 @@ def d_tanh(x : np.ndarray, **kwargs) -> np.ndarray :
 def d_relu(x : np.ndarray, **kwargs) -> np.ndarray :
     """Partial derivative for relu function
 
-    `Formula: 0 if x < 0 else 1`
+    ``Formula: 0 if x < 0 else 1``
     
     """
 
@@ -56,7 +56,7 @@ def d_relu(x : np.ndarray, **kwargs) -> np.ndarray :
 def d_leakyrelu(x : np.ndarray, leakyrelu_slope : float, **kwargs) -> np.ndarray :
     """Partial derivative for leaky relu function
     
-    `Formula: slope if x < 0 else 1`
+    ``Formula: slope if x < 0 else 1``
     """
 
     if IS_CUDA :

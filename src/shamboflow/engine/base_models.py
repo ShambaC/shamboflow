@@ -75,7 +75,7 @@ class BaseModel :
         """The accuracy value of the model at any instance"""
 
         self.metrics : dict = {'loss' : 0.0, 'acc' : 0.0, 'val_loss' : 0.0, 'val_acc' : 0.0}
-        """A dictionary of metrics for the model. Includes `loss`, `acc`, `val_loss`, `val_acc`"""
+        """A dictionary of metrics for the model. Includes ``loss``, ``acc``, ``val_loss``, ``val_acc``"""
         self.current_epoch : int = 0
         """The current epoch of the model during training"""
         self.is_fitting : bool = True

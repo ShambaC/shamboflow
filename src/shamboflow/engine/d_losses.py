@@ -8,7 +8,7 @@ from shamboflow import IS_CUDA
 def d_MSE(pred_val : np.ndarray, obs_val : np.ndarray) -> np.ndarray :
     """Derivative of Mean Squared Error loss function
     
-    `Formula : y_pbserved - y_predicted`
+    ``Formula : y_pbserved - y_predicted``
     """
 
     if IS_CUDA :

@@ -13,7 +13,7 @@ def MSE(pred_val : np.ndarray, obs_val : np.ndarray) -> float :
     predicted data and the actual
     data.
 
-    `MSE = (1 / 2)(Sum (i = 1 to n)(y_i - y^_i) ^ 2)`
+    ``MSE = (1 / 2)(Sum (i = 1 to n)(y_i - y^_i) ^ 2)``
 
     It is the mean of all errors squared.
     It is multiplied with 1/2 instead of

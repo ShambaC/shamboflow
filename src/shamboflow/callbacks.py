@@ -20,7 +20,7 @@ class EarlyStopping(BaseCallback) :
 
         Args
             monitor:
-                The metric to monitor. It is one of the 4: `loss`, `acc`, `val_loss`, `val_acc`
+                The metric to monitor. It is one of the 4: ``loss``, ``acc``, ``val_loss``, ``val_acc``
             patience:
                 How many epoch to monitor before stopping
             verbose:
@@ -96,7 +96,7 @@ class ReduceLROnPlateau(BaseCallback) :
         
         Args
             monitor:
-                The metric to monitor. It is one of the 4: `loss`, `acc`, `val_loss`, `val_acc`
+                The metric to monitor. It is one of the 4: ``loss``, ``acc``, ``val_loss``, ``val_acc``
             patience:
                 How many epoch to monitor before stopping
             factor:
