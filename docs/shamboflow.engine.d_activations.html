@@ -361,7 +361,7 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/d_activations.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/d_activations.py" class="sourceLink">(source)</a>
           <p></p>
         </div>
 
@@ -392,7 +392,7 @@
     
     <td>Function</td>
     <td><code><a href="#d_softmax" class="internal-link" title="shamboflow.engine.d_activations.d_softmax">d<wbr></wbr>_softmax</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Not implemented yet</td>
   </tr><tr class="function">
     
     <td>Function</td>
@@ -424,7 +424,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">d_leakyrelu</span><span class="function-signature">(x: <code>np.ndarray</code>, leakyrelu_slope: <code><a href="https://docs.python.org/3/library/functions.html#float" class="intersphinx-link">float</a></code>, **kwargs) -&gt; <code>np.ndarray</code></span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/d_activations.py#L56">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/d_activations.py#L56">
       
       (source)
     </a>
@@ -437,7 +437,7 @@
   <div class="docstring functionBody">
     
     <div><p>Partial derivative for leaky relu function</p>
-<p>`Formula: slope if x &lt; 0 else 1`</p>
+<p><tt class="rst-docutils rst-literal">Formula: slope if x &lt; 0 else 1</tt></p>
 </div>
   </div>
 </div><div class="basefunction">
@@ -453,7 +453,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">d_relu</span><span class="function-signature">(x: <code>np.ndarray</code>, **kwargs) -&gt; <code>np.ndarray</code></span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/d_activations.py#L42">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/d_activations.py#L42">
       
       (source)
     </a>
@@ -466,7 +466,7 @@
   <div class="docstring functionBody">
     
     <div><p>Partial derivative for relu function</p>
-<p>`Formula: 0 if x &lt; 0 else 1`</p>
+<p><tt class="rst-docutils rst-literal">Formula: 0 if x &lt; 0 else 1</tt></p>
 </div>
   </div>
 </div><div class="basefunction">
@@ -482,7 +482,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">d_sigmoid</span><span class="function-signature">(x: <code>np.ndarray</code>, **kwargs) -&gt; <code>np.ndarray</code></span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/d_activations.py#L9">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/d_activations.py#L9">
       
       (source)
     </a>
@@ -495,7 +495,8 @@
   <div class="docstring functionBody">
     
     <div><p>The partial derivative of sigmoid function</p>
-<p>If sigmoid is g(x) `g'(x) = g(x)(1 - g(x))`</p>
+<p>If sigmoid is g(x)
+<tt class="rst-docutils rst-literal"><span class="pre">g'(x)</span> = <span class="pre">g(x)(1</span> - g(x))</tt></p>
 </div>
   </div>
 </div><div class="basefunction">
@@ -511,7 +512,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">d_softmax</span><span class="function-signature">(x: <code>np.ndarray</code>, **kwargs) -&gt; <code>np.ndarray</code></span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/d_activations.py#L69">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/d_activations.py#L69">
       
       (source)
     </a>
@@ -523,7 +524,7 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>Not implemented yet</p></div>
   </div>
 </div><div class="basefunction">
   
@@ -538,7 +539,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">d_tanh</span><span class="function-signature">(x: <code>np.ndarray</code>, **kwargs) -&gt; <code>np.ndarray</code></span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/d_activations.py#L25">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/d_activations.py#L25">
       
       (source)
     </a>
@@ -551,7 +552,8 @@
   <div class="docstring functionBody">
     
     <div><p>The partial derivative for hyperbolic tangent</p>
-<p>If tanh is g(x) `g'(x) = 1 - g(x)^2`</p>
+<p>If tanh is g(x)
+<tt class="rst-docutils rst-literal"><span class="pre">g'(x)</span> = 1 - <span class="pre">g(x)^2</span></tt></p>
 </div>
   </div>
 </div><div class="basefunction">
@@ -567,7 +569,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">get</span><span class="function-signature">(func: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code>)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/d_activations.py#L73">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/d_activations.py#L74">
       
       (source)
     </a>
@@ -579,19 +581,20 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p class="pre">Helper function to get an activation function derivative
-
-Return the appropriate activation function
-depending on the given string
-
-Args
-----
-    func : str
-        Query string for the requested activation function derivative
-
-Returns
--------
-    Appropriate function</p></div>
+    <div><p>Helper function to get an activation function derivative</p>
+<p>Return the appropriate activation function
+depending on the given string</p>
+<dl class="rst-docutils">
+<dt>Args</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>func:</dt>
+<dd>Query string for the requested activation function derivative</dd>
+</dl>
+</dd>
+<dt>Returns</dt>
+<dd>Appropriate function</dd>
+</dl>
+</div>
   </div>
 </div>
         </div>
@@ -605,7 +608,7 @@ Returns
   <div class="container">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/ShambaC/shamboflow" class="projecthome">shamboflow</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    24.3.3 at 2024-09-30 09:36:27.
+    24.3.3 at 2024-10-01 18:26:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

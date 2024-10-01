@@ -361,12 +361,12 @@
         </div>
 
         <div class="extrasDocstring">
-          <a href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/activations.py" class="sourceLink">(source)</a>
+          <a href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/activations.py" class="sourceLink">(source)</a>
           <p></p>
         </div>
 
         <div class="moduleDocstring">
-          <div><p>Activation functions</p></div>
+          <div><p>Common Activation functions</p></div>
         </div>
 
         <div id="splitTables">
@@ -424,7 +424,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">get</span><span class="function-signature">(func: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code>)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/activations.py#L168">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/activations.py#L160">
       
       (source)
     </a>
@@ -436,19 +436,20 @@
   </div>
   <div class="docstring functionBody">
     
-    <div><p class="pre">Helper function to get an activation function
-
-Return the appropriate activation function
-depending on the given string
-
-Args
-----
-    func : str
-        Query string for the requested activation function
-
-Returns
--------
-    Appropriate function</p></div>
+    <div><p>Helper function to get an activation function</p>
+<p>Return the appropriate activation function
+depending on the given string</p>
+<dl class="rst-docutils">
+<dt>Args</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>func:</dt>
+<dd>Query string for the requested activation function</dd>
+</dl>
+</dd>
+<dt>Returns</dt>
+<dd>Appropriate function</dd>
+</dl>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -463,7 +464,7 @@ Returns
     
     
     <span class="py-keyword">def</span> <span class="py-defname">leakyrelu</span><span class="function-signature">(x: <code>np.ndarray</code>, leakyrelu_slope: <code><a href="https://docs.python.org/3/library/functions.html#float" class="intersphinx-link">float</a></code>, **kwargs) -&gt; <code>np.ndarray</code></span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/activations.py#L101">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/activations.py#L95">
       
       (source)
     </a>
@@ -475,27 +476,26 @@ Returns
   </div>
   <div class="docstring functionBody">
     
-    <div><p class="pre">Leaky ReLU activation function
-
-This function was devised to address
+    <div><p>Leaky ReLU activation function</p>
+<p>This function was devised to address
 the issue of negative values as input
 to ReLU. ReLU would simply discard
-them, but leaky relu uses them as well.
-
-`leakyReLU(x, slope) = if (x &gt; 0) =&gt; x, if (x &lt;= 0) =&gt; slope * x`
-
-Range: (-inf, inf)
-
-Args
-----
-x : ndarray
-    The input vector to apply activation function over.
-slope : float
-    slope of the line that provides output for negative inputs
-
-Returns
--------
-    Value after leakyrelu is applied on x</p></div>
+them, but leaky relu uses them as well.</p>
+<p><tt class="rst-docutils rst-literal">leakyReLU(x, slope) = if (x &gt; 0) =&gt; x, if (x &lt;= 0) =&gt; slope * x</tt></p>
+<p>Range: (-inf, inf)</p>
+<dl class="rst-docutils">
+<dt>Args</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>x:</dt>
+<dd>The input vector to apply activation function over.</dd>
+</dl>
+</dd>
+<dt>slope:</dt>
+<dd>slope of the line that provides output for negative inputs</dd>
+<dt>Returns</dt>
+<dd>Value after leakyrelu is applied on x</dd>
+</dl>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -510,7 +510,7 @@ Returns
     
     
     <span class="py-keyword">def</span> <span class="py-defname">relu</span><span class="function-signature">(x: <code>np.ndarray</code>, **kwargs) -&gt; <code>np.ndarray</code></span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/activations.py#L67">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/activations.py#L63">
       
       (source)
     </a>
@@ -522,27 +522,25 @@ Returns
   </div>
   <div class="docstring functionBody">
     
-    <div><p class="pre">ReLU activation function
-
-Applies the ReLU activation function on the input x.
-
-ReLU or Rectilinear Unit was devised to overcome
+    <div><p>ReLU activation function</p>
+<p>Applies the ReLU activation function on the input x.</p>
+<p>ReLU or Rectilinear Unit was devised to overcome
 the issue of vanishing gradient in sigmoid function. It resolves
 the issue by not having any upper limit. But that comes with
-its own problems.
-
-`ReLU(x) = max(0, x)`
-
-Range: [0, inf)
-
-Args
-----
-x : ndarray
-    The input vector to apply activation function over.
-
-Returns
--------
-    Value after relu is applied on x</p></div>
+its own problems.</p>
+<p><tt class="rst-docutils rst-literal">ReLU(x) = max(0, x)</tt></p>
+<p>Range: [0, inf)</p>
+<dl class="rst-docutils">
+<dt>Args</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>x:</dt>
+<dd>The input vector to apply activation function over.</dd>
+</dl>
+</dd>
+<dt>Returns</dt>
+<dd>Value after relu is applied on x</dd>
+</dl>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -557,7 +555,7 @@ Returns
     
     
     <span class="py-keyword">def</span> <span class="py-defname">sigmoid</span><span class="function-signature">(x: <code>np.ndarray</code>, **kwargs) -&gt; <code>np.ndarray</code></span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/activations.py#L7">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/activations.py#L7">
       
       (source)
     </a>
@@ -569,24 +567,23 @@ Returns
   </div>
   <div class="docstring functionBody">
     
-    <div><p class="pre">Sigmoid acitvation function
-
-Applies the sigmoid activation function to a value.
+    <div><p>Sigmoid acitvation function</p>
+<p>Applies the sigmoid activation function to a value.
 It returns a value between 0 and 1 but never 0 and 1.
-It suffers from the vanishing gradient issue.
-
-`sigmoid(x) = 1 / (1 + exp(-x))`
-
-Range: (0, 1)
-
-Args
-----
-x : ndarray
-    The input vector to apply activation function over.
-
-Returns
--------
-    Value after sigmoid is applied on x</p></div>
+It suffers from the vanishing gradient issue.</p>
+<p><tt class="rst-docutils rst-literal">sigmoid(x) = 1 / (1 + <span class="pre">exp(-x))</span></tt></p>
+<p>Range: (0, 1)</p>
+<dl class="rst-docutils">
+<dt>Args</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>x:</dt>
+<dd>The input vector to apply activation function over.</dd>
+</dl>
+</dd>
+<dt>Returns</dt>
+<dd>Value after sigmoid is applied on x</dd>
+</dl>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -601,7 +598,7 @@ Returns
     
     
     <span class="py-keyword">def</span> <span class="py-defname">softmax</span><span class="function-signature">(x: <code>np.ndarray</code>, **kwargs) -&gt; <code>np.ndarray</code></span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/activations.py#L135">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/activations.py#L127">
       
       (source)
     </a>
@@ -613,23 +610,24 @@ Returns
   </div>
   <div class="docstring functionBody">
     
-    <div><p class="pre">SoftMax activation function
-
-This function takes a vector as input
+    <div><p>SoftMax activation function</p>
+<p>This function takes a vector as input
 and changes them to probabilities based
 on their values with respect to the
-vector itself.
-
-Range: (0, 1)
-
-Args
-----
-x : ndarray
-    The input vector to apply activation function over.
-
-Returns
--------
-    Value after softmax is applied on x</p></div>
+vector itself.</p>
+<p>Range: (0, 1)</p>
+<dl class="rst-docutils">
+<dt>Args</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>x:</dt>
+<dd>The input vector to apply activation function over.</dd>
+</dl>
+</dd>
+<dt>Returns</dt>
+<dd>Value after softmax is applied on x</dd>
+</dl>
+<p>WARNING: Not available at the moment</p>
+</div>
   </div>
 </div><div class="basefunction">
   
@@ -644,7 +642,7 @@ Returns
     
     
     <span class="py-keyword">def</span> <span class="py-defname">tanh</span><span class="function-signature">(x: <code>np.ndarray</code>, **kwargs) -&gt; <code>np.ndarray</code></span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/activations.py#L39">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/activations.py#L37">
       
       (source)
     </a>
@@ -656,20 +654,20 @@ Returns
   </div>
   <div class="docstring functionBody">
     
-    <div><p class="pre">Hyperbolic tangent activation function
-
-`tanh(x) = (exp(x) - exp(-x)) / (exp(x) + exp(-x))`
-
-Range: (-1, 1)
-
-Args
-----
-x : ndarray
-    The input vector to apply activation function over.
-
-Returns
--------
-    Value after tanh is applied on x</p></div>
+    <div><p>Hyperbolic tangent activation function</p>
+<p><tt class="rst-docutils rst-literal">tanh(x) = (exp(x) - <span class="pre">exp(-x))</span> / (exp(x) + <span class="pre">exp(-x))</span></tt></p>
+<p>Range: (-1, 1)</p>
+<dl class="rst-docutils">
+<dt>Args</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>x:</dt>
+<dd>The input vector to apply activation function over.</dd>
+</dl>
+</dd>
+<dt>Returns</dt>
+<dd>Value after tanh is applied on x</dd>
+</dl>
+</div>
   </div>
 </div>
         </div>
@@ -683,7 +681,7 @@ Returns
   <div class="container">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/ShambaC/shamboflow" class="projecthome">shamboflow</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    24.3.3 at 2024-09-30 09:36:27.
+    24.3.3 at 2024-10-01 18:26:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

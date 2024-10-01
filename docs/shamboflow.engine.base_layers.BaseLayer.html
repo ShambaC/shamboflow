@@ -202,6 +202,46 @@
         
 
         
+            <div class="itemName"><code><a href="#activation" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.activation">activation</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#activation_str" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.activation_str">activation<wbr></wbr>_str</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#bias_array" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.bias_array">bias<wbr></wbr>_array</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#error_array" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.error_array">error<wbr></wbr>_array</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#is_built" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.is_built">is<wbr></wbr>_built</a></code>
             </div>
         
@@ -212,7 +252,37 @@
         
 
         
+            <div class="itemName"><code><a href="#leakyrelu_slope" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.leakyrelu_slope">leakyrelu<wbr></wbr>_slope</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#midway" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.midway">midway</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
             <div class="itemName"><code><a href="#name" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.name">name</a></code>
+            </div>
+        
+
+    </li><li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="#output_array" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.output_array">output<wbr></wbr>_array</a></code>
             </div>
         
 
@@ -304,28 +374,31 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">BaseLayer</span>: <a href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_layers.py#L3" class="sourceLink">(source)</a></code></p><p>Known subclasses: <code><a href="shamboflow.layers.Dense.html" class="internal-link">shamboflow.layers.Dense</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.__init__">BaseLayer(name, trainable)</a></code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">BaseLayer</span>: <a href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_layers.py#L5" class="sourceLink">(source)</a></code></p><p>Known subclasses: <code><a href="shamboflow.layers.Dense.html" class="internal-link">shamboflow.layers.Dense</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.__init__">BaseLayer(name, trainable)</a></code></p>
           <p><a href="classIndex.html#shamboflow.engine.base_layers.BaseLayer">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
-          <div><p class="pre">The base class for layers to inherit from.
-
-A layer is an object that is a part of
+          <div><p>The base class for layers to inherit from.</p>
+<p>A layer is an object that is a part of
 the neural network. It performs calculations
 on neurons or neurons present in it
 commonly. It can also not have computable
 neurons, instead can also be used to filter
-data from previous layers.
-
-Attributes
-----------
-    name :
-        The name of the layer
-    trainable :
-        Is the layer trainable
-    is_built :
-        Is the layer built and initialized</p></div>
+data from previous layers.</p>
+<dl class="rst-docutils">
+<dt>Attributes</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>name:</dt>
+<dd>The name of the layer</dd>
+<dt>trainable:</dt>
+<dd>Is the layer trainable</dd>
+<dt>is_built:</dt>
+<dd>Is the layer built and initialized</dd>
+</dl>
+</dd>
+</dl>
+</div>
         </div>
 
         <div id="splitTables">
@@ -350,18 +423,53 @@ Attributes
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
+    <td><code><a href="#activation" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.activation">activation</a></code></td>
+    <td>Activation function used by the layer</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#activation_str" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.activation_str">activation<wbr></wbr>_str</a></code></td>
+    <td>The name of the activation function</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#bias_array" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.bias_array">bias<wbr></wbr>_array</a></code></td>
+    <td>Bias values of the layer</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#error_array" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.error_array">error<wbr></wbr>_array</a></code></td>
+    <td>Error values of the layer</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
     <td><code><a href="#is_built" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.is_built">is<wbr></wbr>_built</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>has the layer been built and compiled</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#leakyrelu_slope" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.leakyrelu_slope">leakyrelu<wbr></wbr>_slope</a></code></td>
+    <td>Slope value if using leakyrelu activation function</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#midway" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.midway">midway</a></code></td>
+    <td>Output value before applying avtivation function</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#name" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.name">name</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Name of the layer</td>
+  </tr><tr class="instancevariable">
+    
+    <td>Instance Variable</td>
+    <td><code><a href="#output_array" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.output_array">output<wbr></wbr>_array</a></code></td>
+    <td>Output matrix of the layer</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#trainable" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.trainable">trainable</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Is the layer trainable</td>
   </tr>
 </table>
           
@@ -383,7 +491,7 @@ Attributes
     
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, name: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code>, trainable: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code> = <a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_layers.py#L23">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_layers.py#L24">
       
       (source)
     </a>
@@ -395,14 +503,18 @@ Attributes
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overridden in <code><a href="shamboflow.layers.Dense.html" class="internal-link">shamboflow.layers.Dense</a></code></div>
-    <div><p class="pre">Constructor for the base layer class
-
-Args
-----
-    name : str
-        Name of the layer
-    trainable : bool
-        Is the layer trainable. Default is True</p></div>
+    <div><p>Constructor for the base layer class</p>
+<dl class="rst-docutils">
+<dt>Args</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>name:</dt>
+<dd>Name of the layer</dd>
+<dt>trainable:</dt>
+<dd>Is the layer trainable. Default is True</dd>
+</dl>
+</dd>
+</dl>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -417,7 +529,7 @@ Args
     
     
     <span class="py-keyword">def</span> <span class="py-defname">build</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_layers.py#L38">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_layers.py#L57">
       
       (source)
     </a>
@@ -430,7 +542,8 @@ Args
   <div class="docstring functionBody">
     <div class="interfaceinfo">overridden in <code><a href="shamboflow.layers.Dense.html" class="internal-link">shamboflow.layers.Dense</a></code></div>
     <div><p>Method to build and initialize the layer.</p>
-<p>This method is to be overidden by child classes to build them by their own logic.</p>
+<p>This method is to be overidden by child
+classes to build them by their own logic.</p>
 </div>
   </div>
 </div><div class="basemethod">
@@ -446,7 +559,7 @@ Args
     
     
     <span class="py-keyword">def</span> <span class="py-defname">compute</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_layers.py#L47">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_layers.py#L66">
       
       (source)
     </a>
@@ -465,6 +578,114 @@ Args
 </div><div class="baseinstancevariable">
   
   
+  <a name="shamboflow.engine.base_layers.BaseLayer.activation">
+    
+  </a>
+  <a name="activation">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">activation</span> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_layers.py#L52">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#activation" title="shamboflow.engine.base_layers.BaseLayer.activation">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="shamboflow.layers.Dense.html" class="internal-link">shamboflow.layers.Dense</a></code></div>
+    <div><p>Activation function used by the layer</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="shamboflow.engine.base_layers.BaseLayer.activation_str">
+    
+  </a>
+  <a name="activation_str">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">activation_str</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_layers.py#L54">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#activation_str" title="shamboflow.engine.base_layers.BaseLayer.activation_str">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="shamboflow.layers.Dense.html" class="internal-link">shamboflow.layers.Dense</a></code></div>
+    <div><p>The name of the activation function</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="shamboflow.engine.base_layers.BaseLayer.bias_array">
+    
+  </a>
+  <a name="bias_array">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">bias_array</span>: <code>np.ndarray</code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_layers.py#L41">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#bias_array" title="shamboflow.engine.base_layers.BaseLayer.bias_array">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="shamboflow.layers.Dense.html" class="internal-link">shamboflow.layers.Dense</a></code></div>
+    <div><p>Bias values of the layer</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="shamboflow.engine.base_layers.BaseLayer.error_array">
+    
+  </a>
+  <a name="error_array">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">error_array</span>: <code>np.ndarray</code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_layers.py#L47">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#error_array" title="shamboflow.engine.base_layers.BaseLayer.error_array">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    
+    <div><p>Error values of the layer</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
   <a name="shamboflow.engine.base_layers.BaseLayer.is_built">
     
   </a>
@@ -474,7 +695,7 @@ Args
   <div class="functionHeader">
     
     <span class="py-defname">is_built</span>: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_layers.py#L36">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_layers.py#L38">
       
       (source)
     </a>
@@ -486,7 +707,61 @@ Args
   </div>
   <div class="functionBody">
     
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>has the layer been built and compiled</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="shamboflow.engine.base_layers.BaseLayer.leakyrelu_slope">
+    
+  </a>
+  <a name="leakyrelu_slope">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">leakyrelu_slope</span>: <code><a href="https://docs.python.org/3/library/functions.html#float" class="intersphinx-link">float</a></code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_layers.py#L49">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#leakyrelu_slope" title="shamboflow.engine.base_layers.BaseLayer.leakyrelu_slope">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="shamboflow.layers.Dense.html" class="internal-link">shamboflow.layers.Dense</a></code></div>
+    <div><p>Slope value if using leakyrelu activation function</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="shamboflow.engine.base_layers.BaseLayer.midway">
+    
+  </a>
+  <a name="midway">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">midway</span>: <code>np.ndarray</code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_layers.py#L45">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#midway" title="shamboflow.engine.base_layers.BaseLayer.midway">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="shamboflow.layers.Dense.html" class="internal-link">shamboflow.layers.Dense</a></code></div>
+    <div><p>Output value before applying avtivation function</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -500,8 +775,8 @@ Args
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">name</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_layers.py#L34">
+    <span class="py-defname">name</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_layers.py#L34">
       
       (source)
     </a>
@@ -513,7 +788,34 @@ Args
   </div>
   <div class="functionBody">
     
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>Name of the layer</p></div>
+    
+  </div>
+</div><div class="baseinstancevariable">
+  
+  
+  <a name="shamboflow.engine.base_layers.BaseLayer.output_array">
+    
+  </a>
+  <a name="output_array">
+    
+  </a>
+  <div class="functionHeader">
+    
+    <span class="py-defname">output_array</span>: <code>np.ndarray</code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_layers.py#L43">
+      
+      (source)
+    </a>
+    <a class="headerLink" href="#output_array" title="shamboflow.engine.base_layers.BaseLayer.output_array">
+      
+      
+      ¶
+    </a>
+  </div>
+  <div class="functionBody">
+    <div class="interfaceinfo">overridden in <code><a href="shamboflow.layers.Dense.html" class="internal-link">shamboflow.layers.Dense</a></code></div>
+    <div><p>Output matrix of the layer</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -527,8 +829,8 @@ Args
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">trainable</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_layers.py#L35">
+    <span class="py-defname">trainable</span>: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_layers.py#L36">
       
       (source)
     </a>
@@ -540,7 +842,7 @@ Args
   </div>
   <div class="functionBody">
     
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>Is the layer trainable</p></div>
     
   </div>
 </div>
@@ -555,7 +857,7 @@ Args
   <div class="container">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/ShambaC/shamboflow" class="projecthome">shamboflow</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    24.3.3 at 2024-09-30 09:36:27.
+    24.3.3 at 2024-10-01 18:26:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

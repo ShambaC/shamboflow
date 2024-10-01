@@ -186,53 +186,53 @@
         <div class="childrenKindTitle">Attributes</div>
         <ul>
     
-    <li class="">
+    <li class="private">
         
         
         
 
         
-            <div class="itemName"><code><a href="#metric_old" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint.metric_old">metric<wbr></wbr>_old</a></code>
+            <div class="itemName"><code><a href="#_metric_old" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint._metric_old">_metric<wbr></wbr>_old</a></code>
             </div>
         
 
-    </li><li class="">
+    </li><li class="private">
         
         
         
 
         
-            <div class="itemName"><code><a href="#monitor" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint.monitor">monitor</a></code>
+            <div class="itemName"><code><a href="#_monitor" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint._monitor">_monitor</a></code>
             </div>
         
 
-    </li><li class="">
+    </li><li class="private">
         
         
         
 
         
-            <div class="itemName"><code><a href="#save_best" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint.save_best">save<wbr></wbr>_best</a></code>
+            <div class="itemName"><code><a href="#_save_best" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint._save_best">_save<wbr></wbr>_best</a></code>
             </div>
         
 
-    </li><li class="">
+    </li><li class="private">
         
         
         
 
         
-            <div class="itemName"><code><a href="#save_path" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint.save_path">save<wbr></wbr>_path</a></code>
+            <div class="itemName"><code><a href="#_save_path" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint._save_path">_save<wbr></wbr>_path</a></code>
             </div>
         
 
-    </li><li class="">
+    </li><li class="private">
         
         
         
 
         
-            <div class="itemName"><code><a href="#verbose" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint.verbose">verbose</a></code>
+            <div class="itemName"><code><a href="#_verbose" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint._verbose">_verbose</a></code>
             </div>
         
 
@@ -334,13 +334,15 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">ModelCheckpoint</span>(<a href="shamboflow.engine.base_callback.BaseCallback.html" class="internal-link" title="shamboflow.engine.base_callback.BaseCallback">BaseCallback</a>): <a href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/callbacks.py#L162" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint.__init__">ModelCheckpoint(save_path, monitor, save_best_only, verbose, ...)</a></code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">ModelCheckpoint</span>(<a href="shamboflow.engine.base_callback.BaseCallback.html" class="internal-link" title="shamboflow.engine.base_callback.BaseCallback">BaseCallback</a>): <a href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/callbacks.py#L168" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint.__init__">ModelCheckpoint(save_path, monitor, save_best_only, verbose, ...)</a></code></p>
           <p><a href="classIndex.html#shamboflow.callbacks.ModelCheckpoint">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
           <div><p>Model Checkpointing</p>
-<p>This callback function monitors a metric and saves the instance of model to disk at every epoch or on a condition</p>
+<p>This callback function monitors a
+metric and saves the instance of model
+to disk at every epoch or on a condition</p>
 </div>
         </div>
 
@@ -358,30 +360,30 @@
     <td>Method</td>
     <td><code><a href="#run" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint.run">run</a></code></td>
     <td>The callback method that will be called after each epoch</td>
-  </tr><tr class="instancevariable">
+  </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#metric_old" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint.metric_old">metric<wbr></wbr>_old</a></code></td>
+    <td><code><a href="#_metric_old" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint._metric_old">_metric<wbr></wbr>_old</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="instancevariable">
+  </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#monitor" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint.monitor">monitor</a></code></td>
+    <td><code><a href="#_monitor" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint._monitor">_monitor</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="instancevariable">
+  </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#save_best" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint.save_best">save<wbr></wbr>_best</a></code></td>
+    <td><code><a href="#_save_best" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint._save_best">_save<wbr></wbr>_best</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="instancevariable">
+  </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#save_path" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint.save_path">save<wbr></wbr>_path</a></code></td>
+    <td><code><a href="#_save_path" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint._save_path">_save<wbr></wbr>_path</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="instancevariable">
+  </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#verbose" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint.verbose">verbose</a></code></td>
+    <td><code><a href="#_verbose" class="internal-link" title="shamboflow.callbacks.ModelCheckpoint._verbose">_verbose</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
@@ -404,7 +406,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, save_path: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">model.ckpt</span><span class="rst-variable-quote">'</span>, monitor: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">loss</span><span class="rst-variable-quote">'</span>, save_best_only: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code> = <a href="https://docs.python.org/3/library/constants.html#True" class="intersphinx-link">True</a>, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code> = <a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>, **kwargs)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/callbacks.py#L170">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/callbacks.py#L176">
       
       (source)
     </a>
@@ -416,18 +418,22 @@
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="shamboflow.engine.base_callback.BaseCallback.html#__init__" class="internal-link">shamboflow.engine.base_callback.BaseCallback.__init__</a></code></div>
-    <div><p class="pre">Initialize
-
-Args
-----
-    save_path : str = 'model.ckpt'
-        Save path for the model
-    monitor : str
-        The metric to monitor. It is one of the 4: `loss`, `acc`, `val_loss`, `val_acc`
-    save_best_only : bool = True
-        whether to save only the best model according to the monitor
-    verbose : bool = False
-        Log callback function logs</p></div>
+    <div><p>Initialize</p>
+<dl class="rst-docutils">
+<dt>Args</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>save_path:</dt>
+<dd>Save path for the model</dd>
+<dt>monitor:</dt>
+<dd>The metric to monitor. It is one of the 4: <tt class="rst-docutils rst-literal">loss</tt>, <tt class="rst-docutils rst-literal">acc</tt>, <tt class="rst-docutils rst-literal">val_loss</tt>, <tt class="rst-docutils rst-literal">val_acc</tt></dd>
+<dt>save_best_only:</dt>
+<dd>whether to save only the best model according to the monitor</dd>
+<dt>verbose:</dt>
+<dd>Log callback function logs</dd>
+</dl>
+</dd>
+</dl>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -442,7 +448,7 @@ Args
     
     
     <span class="py-keyword">def</span> <span class="py-defname">run</span><span class="function-signature">(self, model: <code><a href="shamboflow.engine.base_models.BaseModel.html" class="internal-link" title="shamboflow.engine.base_models.BaseModel">BaseModel</a></code>)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/callbacks.py#L193">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/callbacks.py#L198">
       
       (source)
     </a>
@@ -454,25 +460,30 @@ Args
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="shamboflow.engine.base_callback.BaseCallback.html#run" class="internal-link">shamboflow.engine.base_callback.BaseCallback.run</a></code></div>
-    <div><p>The callback method that will be called after each epoch</p></div>
+    <div><p>The callback method that will be called after each epoch</p>
+<dl class="rst-docutils">
+<dt>Args</dt>
+<dd>model: The model on which callback wil be called</dd>
+</dl>
+</div>
   </div>
-</div><div class="baseinstancevariable">
+</div><div class="baseinstancevariable private">
   
   
-  <a name="shamboflow.callbacks.ModelCheckpoint.metric_old">
+  <a name="shamboflow.callbacks.ModelCheckpoint._metric_old">
     
   </a>
-  <a name="metric_old">
+  <a name="_metric_old">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">metric_old</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/callbacks.py#L191">
+    <span class="py-defname">_metric_old</span> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/callbacks.py#L196">
       
       (source)
     </a>
-    <a class="headerLink" href="#metric_old" title="shamboflow.callbacks.ModelCheckpoint.metric_old">
+    <a class="headerLink" href="#_metric_old" title="shamboflow.callbacks.ModelCheckpoint._metric_old">
       
       
       ¶
@@ -483,23 +494,23 @@ Args
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
-</div><div class="baseinstancevariable">
+</div><div class="baseinstancevariable private">
   
   
-  <a name="shamboflow.callbacks.ModelCheckpoint.monitor">
+  <a name="shamboflow.callbacks.ModelCheckpoint._monitor">
     
   </a>
-  <a name="monitor">
+  <a name="_monitor">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">monitor</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/callbacks.py#L187">
+    <span class="py-defname">_monitor</span> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/callbacks.py#L192">
       
       (source)
     </a>
-    <a class="headerLink" href="#monitor" title="shamboflow.callbacks.ModelCheckpoint.monitor">
+    <a class="headerLink" href="#_monitor" title="shamboflow.callbacks.ModelCheckpoint._monitor">
       
       
       ¶
@@ -510,23 +521,23 @@ Args
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
-</div><div class="baseinstancevariable">
+</div><div class="baseinstancevariable private">
   
   
-  <a name="shamboflow.callbacks.ModelCheckpoint.save_best">
+  <a name="shamboflow.callbacks.ModelCheckpoint._save_best">
     
   </a>
-  <a name="save_best">
+  <a name="_save_best">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">save_best</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/callbacks.py#L188">
+    <span class="py-defname">_save_best</span> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/callbacks.py#L193">
       
       (source)
     </a>
-    <a class="headerLink" href="#save_best" title="shamboflow.callbacks.ModelCheckpoint.save_best">
+    <a class="headerLink" href="#_save_best" title="shamboflow.callbacks.ModelCheckpoint._save_best">
       
       
       ¶
@@ -537,23 +548,23 @@ Args
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
-</div><div class="baseinstancevariable">
+</div><div class="baseinstancevariable private">
   
   
-  <a name="shamboflow.callbacks.ModelCheckpoint.save_path">
+  <a name="shamboflow.callbacks.ModelCheckpoint._save_path">
     
   </a>
-  <a name="save_path">
+  <a name="_save_path">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">save_path</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/callbacks.py#L186">
+    <span class="py-defname">_save_path</span> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/callbacks.py#L191">
       
       (source)
     </a>
-    <a class="headerLink" href="#save_path" title="shamboflow.callbacks.ModelCheckpoint.save_path">
+    <a class="headerLink" href="#_save_path" title="shamboflow.callbacks.ModelCheckpoint._save_path">
       
       
       ¶
@@ -564,23 +575,23 @@ Args
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
-</div><div class="baseinstancevariable">
+</div><div class="baseinstancevariable private">
   
   
-  <a name="shamboflow.callbacks.ModelCheckpoint.verbose">
+  <a name="shamboflow.callbacks.ModelCheckpoint._verbose">
     
   </a>
-  <a name="verbose">
+  <a name="_verbose">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">verbose</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/callbacks.py#L189">
+    <span class="py-defname">_verbose</span> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/callbacks.py#L194">
       
       (source)
     </a>
-    <a class="headerLink" href="#verbose" title="shamboflow.callbacks.ModelCheckpoint.verbose">
+    <a class="headerLink" href="#_verbose" title="shamboflow.callbacks.ModelCheckpoint._verbose">
       
       
       ¶
@@ -603,7 +614,7 @@ Args
   <div class="container">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/ShambaC/shamboflow" class="projecthome">shamboflow</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    24.3.3 at 2024-09-30 09:36:27.
+    24.3.3 at 2024-10-01 18:26:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

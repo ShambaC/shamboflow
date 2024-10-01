@@ -544,34 +544,35 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">BaseModel</span>: <a href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L5" class="sourceLink">(source)</a></code></p><p>Known subclasses: <code><a href="shamboflow.models.Sequential.html" class="internal-link">shamboflow.models.Sequential</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="shamboflow.engine.base_models.BaseModel.__init__">BaseModel(**kwargs)</a></code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">BaseModel</span>: <a href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L7" class="sourceLink">(source)</a></code></p><p>Known subclasses: <code><a href="shamboflow.models.Sequential.html" class="internal-link">shamboflow.models.Sequential</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="shamboflow.engine.base_models.BaseModel.__init__">BaseModel(**kwargs)</a></code></p>
           <p><a href="classIndex.html#shamboflow.engine.base_models.BaseModel">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
-          <div><p class="pre">The Base class for models
-
-All other models need to
+          <div><p>The Base class for models</p>
+<p>All other models need to
 inherit from this class.
 It provides a template with
 all the methods a model will
-need to execute.
-
-Attributes :
-------------
-    layers :
-        A list of layers present in the model in the order from input to output
-    weights :
-        A list of all weight matrices for the layers in the model
-    loss :
-        The loss/cost function to use calculate error of the model at a given state
-    train_data_x :
-        The training data or features
-    train_data_y :
-        Training features' corresponding labels
-    and more
-
-    </p></div>
+need to execute.</p>
+<dl class="rst-docutils">
+<dt>Attributes</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>layers:</dt>
+<dd>A list of layers present in the model in the order from input to output</dd>
+<dt>weights:</dt>
+<dd>A list of all weight matrices for the layers in the model</dd>
+<dt>loss:</dt>
+<dd>The loss/cost function to use calculate error of the model at a given state</dd>
+<dt>train_data_x:</dt>
+<dd>The training data or features</dd>
+<dt>train_data_y:</dt>
+<dd>Training features' corresponding labels</dd>
+</dl>
+</dd>
+</dl>
+<p>And more attributes</p>
+</div>
         </div>
 
         <div id="splitTables">
@@ -627,107 +628,107 @@ Attributes :
     
     <td>Instance Variable</td>
     <td><code><a href="#accuracy_val" class="internal-link" title="shamboflow.engine.base_models.BaseModel.accuracy_val">accuracy<wbr></wbr>_val</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>The accuracy value of the model at any instance</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#callbacks" class="internal-link" title="shamboflow.engine.base_models.BaseModel.callbacks">callbacks</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>A list of callback functions</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#current_epoch" class="internal-link" title="shamboflow.engine.base_models.BaseModel.current_epoch">current<wbr></wbr>_epoch</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>The current epoch of the model during training</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#epochs" class="internal-link" title="shamboflow.engine.base_models.BaseModel.epochs">epochs</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Number of epochs to train for</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#error_val" class="internal-link" title="shamboflow.engine.base_models.BaseModel.error_val">error<wbr></wbr>_val</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>The loss value of the model at any instance</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#has_validation_data" class="internal-link" title="shamboflow.engine.base_models.BaseModel.has_validation_data">has<wbr></wbr>_validation<wbr></wbr>_data</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Boolean flag fo if the the model has validation data</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#is_compiled" class="internal-link" title="shamboflow.engine.base_models.BaseModel.is_compiled">is<wbr></wbr>_compiled</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Has the model been compiled</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#is_fitting" class="internal-link" title="shamboflow.engine.base_models.BaseModel.is_fitting">is<wbr></wbr>_fitting</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Is the model training right now</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#layers" class="internal-link" title="shamboflow.engine.base_models.BaseModel.layers">layers</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>A list of layers in the model</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#learning_rate" class="internal-link" title="shamboflow.engine.base_models.BaseModel.learning_rate">learning<wbr></wbr>_rate</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>The learning rate of the model</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#loss" class="internal-link" title="shamboflow.engine.base_models.BaseModel.loss">loss</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>The loss function used by the model</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#loss_str" class="internal-link" title="shamboflow.engine.base_models.BaseModel.loss_str">loss<wbr></wbr>_str</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>The name of the loss function used</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#metrics" class="internal-link" title="shamboflow.engine.base_models.BaseModel.metrics">metrics</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>A dictionary of metrics for the model. Includes <tt class="rst-docutils rst-literal">loss</tt>, <tt class="rst-docutils rst-literal">acc</tt>, <tt class="rst-docutils rst-literal">val_loss</tt>, <tt class="rst-docutils rst-literal">val_acc</tt></td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#parameters" class="internal-link" title="shamboflow.engine.base_models.BaseModel.parameters">parameters</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Amount of trainable parameters in the model</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#test_data_x" class="internal-link" title="shamboflow.engine.base_models.BaseModel.test_data_x">test<wbr></wbr>_data<wbr></wbr>_x</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Features of the test dataset</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#test_data_y" class="internal-link" title="shamboflow.engine.base_models.BaseModel.test_data_y">test<wbr></wbr>_data<wbr></wbr>_y</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Labels for the test dataset</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#train_data_x" class="internal-link" title="shamboflow.engine.base_models.BaseModel.train_data_x">train<wbr></wbr>_data<wbr></wbr>_x</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>The feature list of the dataset</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#train_data_y" class="internal-link" title="shamboflow.engine.base_models.BaseModel.train_data_y">train<wbr></wbr>_data<wbr></wbr>_y</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>The labels for each data in the dataset</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#validation_x" class="internal-link" title="shamboflow.engine.base_models.BaseModel.validation_x">validation<wbr></wbr>_x</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Features of validation set</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#validation_y" class="internal-link" title="shamboflow.engine.base_models.BaseModel.validation_y">validation<wbr></wbr>_y</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Labels of the validation set</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#weights" class="internal-link" title="shamboflow.engine.base_models.BaseModel.weights">weights</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>A list of all weights between each layers</td>
   </tr>
 </table>
           
@@ -749,7 +750,7 @@ Attributes :
     
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, **kwargs)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L31">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L32">
       
       (source)
     </a>
@@ -762,8 +763,12 @@ Attributes :
   <div class="docstring functionBody">
     <div class="interfaceinfo">overridden in <code><a href="shamboflow.models.Sequential.html" class="internal-link">shamboflow.models.Sequential</a></code></div>
     <div><p>Initialize the required attributes.</p>
-<p>Also optionally takes in a list of layers as a parameter.</p>
-<p>`layers` is an optional arg. It takes a list of layers and them to the model</p>
+<p>Also optionally takes in a list of
+layers as a parameter.</p>
+<dl class="rst-docutils">
+<dt>Keyword Args</dt>
+<dd>layers: It takes a list of layers and them to the model</dd>
+</dl>
 </div>
   </div>
 </div><div class="basemethod">
@@ -779,7 +784,7 @@ Attributes :
     
     
     <span class="py-keyword">def</span> <span class="py-defname">add</span><span class="function-signature">(self, layer: <code><a href="shamboflow.engine.base_layers.BaseLayer.html" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer">BaseLayer</a></code>)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L74">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L96">
       
       (source)
     </a>
@@ -791,12 +796,16 @@ Attributes :
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overridden in <code><a href="shamboflow.models.Sequential.html" class="internal-link">shamboflow.models.Sequential</a></code></div>
-    <div><p class="pre">Method to add layers to the model
-
-Args
-----
-    layer : BaseLayer
-        layer to add to the model</p></div>
+    <div><p>Method to add layers to the model</p>
+<dl class="rst-docutils">
+<dt>Args</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>layer:</dt>
+<dd>layer to add to the model</dd>
+</dl>
+</dd>
+</dl>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -811,7 +820,7 @@ Args
     
     
     <span class="py-keyword">def</span> <span class="py-defname">compile</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L85">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L106">
       
       (source)
     </a>
@@ -840,7 +849,7 @@ Args
     
     
     <span class="py-keyword">def</span> <span class="py-defname">evaluate</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L111">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L132">
       
       (source)
     </a>
@@ -867,7 +876,7 @@ Args
     
     
     <span class="py-keyword">def</span> <span class="py-defname">fit</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L92">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L113">
       
       (source)
     </a>
@@ -896,7 +905,7 @@ Args
     
     
     <span class="py-keyword">def</span> <span class="py-defname">predict</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L115">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L136">
       
       (source)
     </a>
@@ -923,7 +932,7 @@ Args
     
     
     <span class="py-keyword">def</span> <span class="py-defname">save</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L107">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L128">
       
       (source)
     </a>
@@ -950,7 +959,7 @@ Args
     
     
     <span class="py-keyword">def</span> <span class="py-defname">stop</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L99">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L120">
       
       (source)
     </a>
@@ -977,7 +986,7 @@ Args
     
     
     <span class="py-keyword">def</span> <span class="py-defname">summary</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L103">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L124">
       
       (source)
     </a>
@@ -1003,7 +1012,7 @@ Args
   <div class="functionHeader">
     
     <span class="py-defname">accuracy_val</span>: <code><a href="https://docs.python.org/3/library/functions.html#float" class="intersphinx-link">float</a></code> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L58">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L74">
       
       (source)
     </a>
@@ -1015,7 +1024,7 @@ Args
   </div>
   <div class="functionBody">
     
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>The accuracy value of the model at any instance</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1030,7 +1039,7 @@ Args
   <div class="functionHeader">
     
     <span class="py-defname">callbacks</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#list" class="intersphinx-link">list</a></code> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L55">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L69">
       
       (source)
     </a>
@@ -1042,7 +1051,7 @@ Args
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="shamboflow.models.Sequential.html" class="internal-link">shamboflow.models.Sequential</a></code></div>
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>A list of callback functions</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1057,7 +1066,7 @@ Args
   <div class="functionHeader">
     
     <span class="py-defname">current_epoch</span>: <code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L61">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L79">
       
       (source)
     </a>
@@ -1069,7 +1078,7 @@ Args
   </div>
   <div class="functionBody">
     
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>The current epoch of the model during training</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1083,8 +1092,8 @@ Args
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">epochs</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L54">
+    <span class="py-defname">epochs</span>: <code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L67">
       
       (source)
     </a>
@@ -1096,7 +1105,7 @@ Args
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="shamboflow.models.Sequential.html" class="internal-link">shamboflow.models.Sequential</a></code></div>
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>Number of epochs to train for</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1111,7 +1120,7 @@ Args
   <div class="functionHeader">
     
     <span class="py-defname">error_val</span>: <code><a href="https://docs.python.org/3/library/functions.html#float" class="intersphinx-link">float</a></code> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L57">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L72">
       
       (source)
     </a>
@@ -1123,7 +1132,7 @@ Args
   </div>
   <div class="functionBody">
     
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>The loss value of the model at any instance</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1138,7 +1147,7 @@ Args
   <div class="functionHeader">
     
     <span class="py-defname">has_validation_data</span>: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L51">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L61">
       
       (source)
     </a>
@@ -1150,7 +1159,7 @@ Args
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="shamboflow.models.Sequential.html" class="internal-link">shamboflow.models.Sequential</a></code></div>
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>Boolean flag fo if the the model has validation data</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1165,7 +1174,7 @@ Args
   <div class="functionHeader">
     
     <span class="py-defname">is_compiled</span>: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L66">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L87">
       
       (source)
     </a>
@@ -1177,7 +1186,7 @@ Args
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="shamboflow.models.Sequential.html" class="internal-link">shamboflow.models.Sequential</a></code></div>
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>Has the model been compiled</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1192,7 +1201,7 @@ Args
   <div class="functionHeader">
     
     <span class="py-defname">is_fitting</span>: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L62">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L81">
       
       (source)
     </a>
@@ -1204,7 +1213,7 @@ Args
   </div>
   <div class="functionBody">
     
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>Is the model training right now</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1218,8 +1227,8 @@ Args
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">layers</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#list" class="intersphinx-link">list</a></code> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L42">
+    <span class="py-defname">layers</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr><a href="shamboflow.engine.base_layers.BaseLayer.html" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer">BaseLayer</a>]</code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L43">
       
       (source)
     </a>
@@ -1231,7 +1240,7 @@ Args
   </div>
   <div class="functionBody">
     
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>A list of layers in the model</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1246,7 +1255,7 @@ Args
   <div class="functionHeader">
     
     <span class="py-defname">learning_rate</span>: <code><a href="https://docs.python.org/3/library/functions.html#float" class="intersphinx-link">float</a></code> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L46">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L51">
       
       (source)
     </a>
@@ -1258,7 +1267,7 @@ Args
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="shamboflow.models.Sequential.html" class="internal-link">shamboflow.models.Sequential</a></code></div>
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>The learning rate of the model</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1273,7 +1282,7 @@ Args
   <div class="functionHeader">
     
     <span class="py-defname">loss</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L44">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L47">
       
       (source)
     </a>
@@ -1285,7 +1294,7 @@ Args
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="shamboflow.models.Sequential.html" class="internal-link">shamboflow.models.Sequential</a></code></div>
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>The loss function used by the model</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1300,7 +1309,7 @@ Args
   <div class="functionHeader">
     
     <span class="py-defname">loss_str</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L45">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L49">
       
       (source)
     </a>
@@ -1312,7 +1321,7 @@ Args
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="shamboflow.models.Sequential.html" class="internal-link">shamboflow.models.Sequential</a></code></div>
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>The name of the loss function used</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1326,8 +1335,8 @@ Args
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">metrics</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a>[<wbr></wbr><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a>, <wbr></wbr><a href="https://docs.python.org/3/library/functions.html#float" class="intersphinx-link">float</a>]</code> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L60">
+    <span class="py-defname">metrics</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#dict" class="intersphinx-link">dict</a></code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L77">
       
       (source)
     </a>
@@ -1339,7 +1348,7 @@ Args
   </div>
   <div class="functionBody">
     
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>A dictionary of metrics for the model. Includes <tt class="rst-docutils rst-literal">loss</tt>, <tt class="rst-docutils rst-literal">acc</tt>, <tt class="rst-docutils rst-literal">val_loss</tt>, <tt class="rst-docutils rst-literal">val_acc</tt></p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1354,7 +1363,7 @@ Args
   <div class="functionHeader">
     
     <span class="py-defname">parameters</span>: <code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L64">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L84">
       
       (source)
     </a>
@@ -1366,7 +1375,7 @@ Args
   </div>
   <div class="functionBody">
     
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>Amount of trainable parameters in the model</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1380,8 +1389,8 @@ Args
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">test_data_x</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L52">
+    <span class="py-defname">test_data_x</span>: <code>np.ndarray</code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L63">
       
       (source)
     </a>
@@ -1393,7 +1402,7 @@ Args
   </div>
   <div class="functionBody">
     
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>Features of the test dataset</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1407,8 +1416,8 @@ Args
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">test_data_y</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L53">
+    <span class="py-defname">test_data_y</span>: <code>np.ndarray</code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L65">
       
       (source)
     </a>
@@ -1420,7 +1429,7 @@ Args
   </div>
   <div class="functionBody">
     
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>Labels for the test dataset</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1434,8 +1443,8 @@ Args
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">train_data_x</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L47">
+    <span class="py-defname">train_data_x</span>: <code>np.ndarray</code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L53">
       
       (source)
     </a>
@@ -1447,7 +1456,7 @@ Args
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="shamboflow.models.Sequential.html" class="internal-link">shamboflow.models.Sequential</a></code></div>
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>The feature list of the dataset</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1461,8 +1470,8 @@ Args
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">train_data_y</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L48">
+    <span class="py-defname">train_data_y</span>: <code>np.ndarray</code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L55">
       
       (source)
     </a>
@@ -1474,7 +1483,7 @@ Args
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="shamboflow.models.Sequential.html" class="internal-link">shamboflow.models.Sequential</a></code></div>
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>The labels for each data in the dataset</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1488,8 +1497,8 @@ Args
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">validation_x</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L49">
+    <span class="py-defname">validation_x</span>: <code>np.ndarray</code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L57">
       
       (source)
     </a>
@@ -1501,7 +1510,7 @@ Args
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="shamboflow.models.Sequential.html" class="internal-link">shamboflow.models.Sequential</a></code></div>
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>Features of validation set</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1515,8 +1524,8 @@ Args
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">validation_y</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L50">
+    <span class="py-defname">validation_y</span>: <code>np.ndarray</code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L59">
       
       (source)
     </a>
@@ -1528,7 +1537,7 @@ Args
   </div>
   <div class="functionBody">
     <div class="interfaceinfo">overridden in <code><a href="shamboflow.models.Sequential.html" class="internal-link">shamboflow.models.Sequential</a></code></div>
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>Labels of the validation set</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -1542,8 +1551,8 @@ Args
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">weights</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#list" class="intersphinx-link">list</a></code> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/engine/base_models.py#L43">
+    <span class="py-defname">weights</span>: <code><a href="https://docs.python.org/3/library/stdtypes.html#list" class="intersphinx-link">list</a>[<wbr></wbr>np.ndarray]</code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/engine/base_models.py#L45">
       
       (source)
     </a>
@@ -1555,7 +1564,7 @@ Args
   </div>
   <div class="functionBody">
     
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>A list of all weights between each layers</p></div>
     
   </div>
 </div>
@@ -1570,7 +1579,7 @@ Args
   <div class="container">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/ShambaC/shamboflow" class="projecthome">shamboflow</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    24.3.3 at 2024-09-30 09:36:27.
+    24.3.3 at 2024-10-01 18:26:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

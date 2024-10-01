@@ -186,73 +186,73 @@
         <div class="childrenKindTitle">Attributes</div>
         <ul>
     
-    <li class="">
+    <li class="private">
         
         
         
 
         
-            <div class="itemName"><code><a href="#factor" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau.factor">factor</a></code>
+            <div class="itemName"><code><a href="#_factor" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau._factor">_factor</a></code>
             </div>
         
 
-    </li><li class="">
+    </li><li class="private">
         
         
         
 
         
-            <div class="itemName"><code><a href="#metric_old" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau.metric_old">metric<wbr></wbr>_old</a></code>
+            <div class="itemName"><code><a href="#_metric_old" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau._metric_old">_metric<wbr></wbr>_old</a></code>
             </div>
         
 
-    </li><li class="">
+    </li><li class="private">
         
         
         
 
         
-            <div class="itemName"><code><a href="#min_val" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau.min_val">min<wbr></wbr>_val</a></code>
+            <div class="itemName"><code><a href="#_min_val" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau._min_val">_min<wbr></wbr>_val</a></code>
             </div>
         
 
-    </li><li class="">
+    </li><li class="private">
         
         
         
 
         
-            <div class="itemName"><code><a href="#monitor" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau.monitor">monitor</a></code>
+            <div class="itemName"><code><a href="#_monitor" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau._monitor">_monitor</a></code>
             </div>
         
 
-    </li><li class="">
+    </li><li class="private">
         
         
         
 
         
-            <div class="itemName"><code><a href="#patience" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau.patience">patience</a></code>
+            <div class="itemName"><code><a href="#_patience" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau._patience">_patience</a></code>
             </div>
         
 
-    </li><li class="">
+    </li><li class="private">
         
         
         
 
         
-            <div class="itemName"><code><a href="#patience_ctr" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau.patience_ctr">patience<wbr></wbr>_ctr</a></code>
+            <div class="itemName"><code><a href="#_patience_ctr" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau._patience_ctr">_patience<wbr></wbr>_ctr</a></code>
             </div>
         
 
-    </li><li class="">
+    </li><li class="private">
         
         
         
 
         
-            <div class="itemName"><code><a href="#verbose" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau.verbose">verbose</a></code>
+            <div class="itemName"><code><a href="#_verbose" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau._verbose">_verbose</a></code>
             </div>
         
 
@@ -354,13 +354,17 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">ReduceLROnPlateau</span>(<a href="shamboflow.engine.base_callback.BaseCallback.html" class="internal-link" title="shamboflow.engine.base_callback.BaseCallback">BaseCallback</a>): <a href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/callbacks.py#L81" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau.__init__">ReduceLROnPlateau(monitor, patience, factor, min_val, ...)</a></code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">ReduceLROnPlateau</span>(<a href="shamboflow.engine.base_callback.BaseCallback.html" class="internal-link" title="shamboflow.engine.base_callback.BaseCallback">BaseCallback</a>): <a href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/callbacks.py#L84" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau.__init__">ReduceLROnPlateau(monitor, patience, factor, min_val, ...)</a></code></p>
           <p><a href="classIndex.html#shamboflow.callbacks.ReduceLROnPlateau">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
           <div><p>Reduce Learning Rate on Plateau callback</p>
-<p>This callback function monitors a given metric for a set amount of iterations and reduces the learning rate if the metric doesn't improve for the given duration.</p>
+<p>This callback function monitors a
+given metric for a set amount of
+iterations and reduces the learning
+rate if the metric doesn't improve
+for the given duration.</p>
 </div>
         </div>
 
@@ -378,40 +382,40 @@
     <td>Method</td>
     <td><code><a href="#run" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau.run">run</a></code></td>
     <td>The callback method that will be called after each epoch</td>
-  </tr><tr class="instancevariable">
+  </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#factor" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau.factor">factor</a></code></td>
+    <td><code><a href="#_factor" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau._factor">_factor</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="instancevariable">
+  </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#metric_old" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau.metric_old">metric<wbr></wbr>_old</a></code></td>
+    <td><code><a href="#_metric_old" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau._metric_old">_metric<wbr></wbr>_old</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="instancevariable">
+  </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#min_val" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau.min_val">min<wbr></wbr>_val</a></code></td>
+    <td><code><a href="#_min_val" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau._min_val">_min<wbr></wbr>_val</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="instancevariable">
+  </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#monitor" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau.monitor">monitor</a></code></td>
+    <td><code><a href="#_monitor" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau._monitor">_monitor</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="instancevariable">
+  </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#patience" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau.patience">patience</a></code></td>
+    <td><code><a href="#_patience" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau._patience">_patience</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="instancevariable">
+  </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#patience_ctr" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau.patience_ctr">patience<wbr></wbr>_ctr</a></code></td>
+    <td><code><a href="#_patience_ctr" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau._patience_ctr">_patience<wbr></wbr>_ctr</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="instancevariable">
+  </tr><tr class="instancevariable private">
     
     <td>Instance Variable</td>
-    <td><code><a href="#verbose" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau.verbose">verbose</a></code></td>
+    <td><code><a href="#_verbose" class="internal-link" title="shamboflow.callbacks.ReduceLROnPlateau._verbose">_verbose</a></code></td>
     <td><span class="undocumented">Undocumented</span></td>
   </tr>
 </table>
@@ -434,7 +438,7 @@
     
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, monitor: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code> = <span class="rst-variable-quote">'</span><span class="rst-variable-string">loss</span><span class="rst-variable-quote">'</span>, patience: <code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code> = 10, factor: <code><a href="https://docs.python.org/3/library/functions.html#float" class="intersphinx-link">float</a></code> = 0.9, min_val: <code><a href="https://docs.python.org/3/library/functions.html#float" class="intersphinx-link">float</a></code> = 1e-10, verbose: <code><a href="https://docs.python.org/3/library/functions.html#bool" class="intersphinx-link">bool</a></code> = <a href="https://docs.python.org/3/library/constants.html#False" class="intersphinx-link">False</a>, **kwargs)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/callbacks.py#L91">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/callbacks.py#L94">
       
       (source)
     </a>
@@ -446,20 +450,24 @@
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="shamboflow.engine.base_callback.BaseCallback.html#__init__" class="internal-link">shamboflow.engine.base_callback.BaseCallback.__init__</a></code></div>
-    <div><p class="pre">Initialize
-
-Args
-----
-    monitor : str
-        The metric to monitor. It is one of the 4: `loss`, `acc`, `val_loss`, `val_acc`
-    patience : int
-        How many epoch to monitor before stopping
-    factor : float = 0.9
-        fraction to which the learning rate will be lowered to. Note - This is not by how much to reduce but how much to reduce to
-    min_val : float = 1e-10
-        Min possible learning rate
-    verbose : bool = False
-        Log callback function logs</p></div>
+    <div><p>Initialize</p>
+<dl class="rst-docutils">
+<dt>Args</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>monitor:</dt>
+<dd>The metric to monitor. It is one of the 4: <tt class="rst-docutils rst-literal">loss</tt>, <tt class="rst-docutils rst-literal">acc</tt>, <tt class="rst-docutils rst-literal">val_loss</tt>, <tt class="rst-docutils rst-literal">val_acc</tt></dd>
+<dt>patience:</dt>
+<dd>How many epoch to monitor before stopping</dd>
+<dt>factor:</dt>
+<dd>fraction to which the learning rate will be lowered to. Note - This is not by how much to reduce but how much to reduce to</dd>
+<dt>min_val:</dt>
+<dd>Min possible learning rate</dd>
+<dt>verbose:</dt>
+<dd>Log callback function logs</dd>
+</dl>
+</dd>
+</dl>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -474,7 +482,7 @@ Args
     
     
     <span class="py-keyword">def</span> <span class="py-defname">run</span><span class="function-signature">(self, model: <code><a href="shamboflow.engine.base_models.BaseModel.html" class="internal-link" title="shamboflow.engine.base_models.BaseModel">BaseModel</a></code>)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/callbacks.py#L117">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/callbacks.py#L119">
       
       (source)
     </a>
@@ -486,25 +494,30 @@ Args
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="shamboflow.engine.base_callback.BaseCallback.html#run" class="internal-link">shamboflow.engine.base_callback.BaseCallback.run</a></code></div>
-    <div><p>The callback method that will be called after each epoch</p></div>
+    <div><p>The callback method that will be called after each epoch</p>
+<dl class="rst-docutils">
+<dt>Args</dt>
+<dd>model: The model on which callback wil be called</dd>
+</dl>
+</div>
   </div>
-</div><div class="baseinstancevariable">
+</div><div class="baseinstancevariable private">
   
   
-  <a name="shamboflow.callbacks.ReduceLROnPlateau.factor">
+  <a name="shamboflow.callbacks.ReduceLROnPlateau._factor">
     
   </a>
-  <a name="factor">
+  <a name="_factor">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">factor</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/callbacks.py#L110">
+    <span class="py-defname">_factor</span> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/callbacks.py#L112">
       
       (source)
     </a>
-    <a class="headerLink" href="#factor" title="shamboflow.callbacks.ReduceLROnPlateau.factor">
+    <a class="headerLink" href="#_factor" title="shamboflow.callbacks.ReduceLROnPlateau._factor">
       
       
       ¶
@@ -515,23 +528,23 @@ Args
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
-</div><div class="baseinstancevariable">
+</div><div class="baseinstancevariable private">
   
   
-  <a name="shamboflow.callbacks.ReduceLROnPlateau.metric_old">
+  <a name="shamboflow.callbacks.ReduceLROnPlateau._metric_old">
     
   </a>
-  <a name="metric_old">
+  <a name="_metric_old">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">metric_old</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/callbacks.py#L114">
+    <span class="py-defname">_metric_old</span> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/callbacks.py#L116">
       
       (source)
     </a>
-    <a class="headerLink" href="#metric_old" title="shamboflow.callbacks.ReduceLROnPlateau.metric_old">
+    <a class="headerLink" href="#_metric_old" title="shamboflow.callbacks.ReduceLROnPlateau._metric_old">
       
       
       ¶
@@ -542,23 +555,23 @@ Args
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
-</div><div class="baseinstancevariable">
+</div><div class="baseinstancevariable private">
   
   
-  <a name="shamboflow.callbacks.ReduceLROnPlateau.min_val">
+  <a name="shamboflow.callbacks.ReduceLROnPlateau._min_val">
     
   </a>
-  <a name="min_val">
+  <a name="_min_val">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">min_val</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/callbacks.py#L111">
+    <span class="py-defname">_min_val</span> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/callbacks.py#L113">
       
       (source)
     </a>
-    <a class="headerLink" href="#min_val" title="shamboflow.callbacks.ReduceLROnPlateau.min_val">
+    <a class="headerLink" href="#_min_val" title="shamboflow.callbacks.ReduceLROnPlateau._min_val">
       
       
       ¶
@@ -569,23 +582,23 @@ Args
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
-</div><div class="baseinstancevariable">
+</div><div class="baseinstancevariable private">
   
   
-  <a name="shamboflow.callbacks.ReduceLROnPlateau.monitor">
+  <a name="shamboflow.callbacks.ReduceLROnPlateau._monitor">
     
   </a>
-  <a name="monitor">
+  <a name="_monitor">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">monitor</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/callbacks.py#L108">
+    <span class="py-defname">_monitor</span> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/callbacks.py#L110">
       
       (source)
     </a>
-    <a class="headerLink" href="#monitor" title="shamboflow.callbacks.ReduceLROnPlateau.monitor">
+    <a class="headerLink" href="#_monitor" title="shamboflow.callbacks.ReduceLROnPlateau._monitor">
       
       
       ¶
@@ -596,23 +609,23 @@ Args
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
-</div><div class="baseinstancevariable">
+</div><div class="baseinstancevariable private">
   
   
-  <a name="shamboflow.callbacks.ReduceLROnPlateau.patience">
+  <a name="shamboflow.callbacks.ReduceLROnPlateau._patience">
     
   </a>
-  <a name="patience">
+  <a name="_patience">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">patience</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/callbacks.py#L109">
+    <span class="py-defname">_patience</span> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/callbacks.py#L111">
       
       (source)
     </a>
-    <a class="headerLink" href="#patience" title="shamboflow.callbacks.ReduceLROnPlateau.patience">
+    <a class="headerLink" href="#_patience" title="shamboflow.callbacks.ReduceLROnPlateau._patience">
       
       
       ¶
@@ -623,23 +636,23 @@ Args
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
-</div><div class="baseinstancevariable">
+</div><div class="baseinstancevariable private">
   
   
-  <a name="shamboflow.callbacks.ReduceLROnPlateau.patience_ctr">
+  <a name="shamboflow.callbacks.ReduceLROnPlateau._patience_ctr">
     
   </a>
-  <a name="patience_ctr">
+  <a name="_patience_ctr">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">patience_ctr</span>: <code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/callbacks.py#L115">
+    <span class="py-defname">_patience_ctr</span>: <code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/callbacks.py#L117">
       
       (source)
     </a>
-    <a class="headerLink" href="#patience_ctr" title="shamboflow.callbacks.ReduceLROnPlateau.patience_ctr">
+    <a class="headerLink" href="#_patience_ctr" title="shamboflow.callbacks.ReduceLROnPlateau._patience_ctr">
       
       
       ¶
@@ -650,23 +663,23 @@ Args
     <div><p class="undocumented">Undocumented</p></div>
     
   </div>
-</div><div class="baseinstancevariable">
+</div><div class="baseinstancevariable private">
   
   
-  <a name="shamboflow.callbacks.ReduceLROnPlateau.verbose">
+  <a name="shamboflow.callbacks.ReduceLROnPlateau._verbose">
     
   </a>
-  <a name="verbose">
+  <a name="_verbose">
     
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">verbose</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/callbacks.py#L112">
+    <span class="py-defname">_verbose</span> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/callbacks.py#L114">
       
       (source)
     </a>
-    <a class="headerLink" href="#verbose" title="shamboflow.callbacks.ReduceLROnPlateau.verbose">
+    <a class="headerLink" href="#_verbose" title="shamboflow.callbacks.ReduceLROnPlateau._verbose">
       
       
       ¶
@@ -689,7 +702,7 @@ Args
   <div class="container">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/ShambaC/shamboflow" class="projecthome">shamboflow</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    24.3.3 at 2024-09-30 09:36:27.
+    24.3.3 at 2024-10-01 18:26:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 

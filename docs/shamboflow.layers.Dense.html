@@ -232,16 +232,6 @@
         
 
         
-            <div class="itemName"><code><a href="#error_array" class="internal-link" title="shamboflow.layers.Dense.error_array">error<wbr></wbr>_array</a></code>
-            </div>
-        
-
-    </li><li class="">
-        
-        
-        
-
-        
             <div class="itemName"><code><a href="#leakyrelu_slope" class="internal-link" title="shamboflow.layers.Dense.leakyrelu_slope">leakyrelu<wbr></wbr>_slope</a></code>
             </div>
         
@@ -283,6 +273,16 @@
         <ul>
     
     <li class="">
+        
+        
+        
+
+        
+            <div class="itemName"><code><a href="shamboflow.engine.base_layers.BaseLayer.html#error_array" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.error_array">error<wbr></wbr>_array</a></code>
+            </div>
+        
+
+    </li><li class="">
         
         
         
@@ -387,28 +387,24 @@
         </div>
 
         <div class="extrasDocstring">
-          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">Dense</span>(<a href="shamboflow.engine.base_layers.BaseLayer.html" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer">BaseLayer</a>): <a href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/layers.py#L10" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="shamboflow.layers.Dense.__init__">Dense(size, activation, **kwargs)</a></code></p>
+          <p class="class-signature"><code><span class="py-keyword">class</span> <span class="py-defname">Dense</span>(<a href="shamboflow.engine.base_layers.BaseLayer.html" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer">BaseLayer</a>): <a href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/layers.py#L10" class="sourceLink">(source)</a></code></p><p>Constructor: <code><a href="#__init__" class="internal-link" title="shamboflow.layers.Dense.__init__">Dense(size, activation, **kwargs)</a></code></p>
           <p><a href="classIndex.html#shamboflow.layers.Dense">View In Hierarchy</a></p>
         </div>
 
         <div class="moduleDocstring">
-          <div><p class="pre">A Simple 1D layer
-
-A Dense layer is a simple 1D layer
+          <div><p>A Simple 1D layer</p>
+<p>A Dense layer is a simple 1D layer
 that just has a given number of
 neurons. Its the most common
-and basic layer.
-
-Attributes
-----------
-    size : int
-        The number of neurons in the layer
-    bias : ndarray
-        An array of bias values for a neuron
-    activation : function
-        The activation function to apply to this layer
-    output : ndarray
-        An array of output values after applying activation function</p></div>
+and basic layer.</p>
+<dl class="rst-docutils">
+<dt>Attributes</dt>
+<dd>size: The number of neurons in the layer
+bias: An array of bias values for a neuron
+activation: The activation function to apply to this layer
+output: An array of output values after applying activation function</dd>
+</dl>
+</div>
         </div>
 
         <div id="splitTables">
@@ -434,42 +430,37 @@ Attributes
     
     <td>Instance Variable</td>
     <td><code><a href="#activation" class="internal-link" title="shamboflow.layers.Dense.activation">activation</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Activation function used by the layer</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#activation_str" class="internal-link" title="shamboflow.layers.Dense.activation_str">activation<wbr></wbr>_str</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>The name of the activation function</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#bias_array" class="internal-link" title="shamboflow.layers.Dense.bias_array">bias<wbr></wbr>_array</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
-  </tr><tr class="instancevariable">
-    
-    <td>Instance Variable</td>
-    <td><code><a href="#error_array" class="internal-link" title="shamboflow.layers.Dense.error_array">error<wbr></wbr>_array</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Bias values of the layer</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#leakyrelu_slope" class="internal-link" title="shamboflow.layers.Dense.leakyrelu_slope">leakyrelu<wbr></wbr>_slope</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Slope value if using leakyrelu activation function</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#midway" class="internal-link" title="shamboflow.layers.Dense.midway">midway</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Output value before applying avtivation function</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#output_array" class="internal-link" title="shamboflow.layers.Dense.output_array">output<wbr></wbr>_array</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Output matrix of the layer</td>
   </tr><tr class="instancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="#size" class="internal-link" title="shamboflow.layers.Dense.size">size</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Size of the layer</td>
   </tr>
 </table>
           
@@ -482,18 +473,23 @@ Attributes
   <tr class="baseinstancevariable">
     
     <td>Instance Variable</td>
+    <td><code><a href="shamboflow.engine.base_layers.BaseLayer.html#error_array" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.error_array">error<wbr></wbr>_array</a></code></td>
+    <td>Error values of the layer</td>
+  </tr><tr class="baseinstancevariable">
+    
+    <td>Instance Variable</td>
     <td><code><a href="shamboflow.engine.base_layers.BaseLayer.html#is_built" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.is_built">is<wbr></wbr>_built</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>has the layer been built and compiled</td>
   </tr><tr class="baseinstancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="shamboflow.engine.base_layers.BaseLayer.html#name" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.name">name</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Name of the layer</td>
   </tr><tr class="baseinstancevariable">
     
     <td>Instance Variable</td>
     <td><code><a href="shamboflow.engine.base_layers.BaseLayer.html#trainable" class="internal-link" title="shamboflow.engine.base_layers.BaseLayer.trainable">trainable</a></code></td>
-    <td><span class="undocumented">Undocumented</span></td>
+    <td>Is the layer trainable</td>
   </tr>
 </table>
             
@@ -515,7 +511,7 @@ Attributes
     
     
     <span class="py-keyword">def</span> <span class="py-defname">__init__</span><span class="function-signature">(self, size: <code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code>, activation: <code><a href="https://docs.python.org/3/library/stdtypes.html#str" class="intersphinx-link">str</a></code> = <a href="https://docs.python.org/3/library/constants.html#None" class="intersphinx-link">None</a>, **kwargs)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/layers.py#L31">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/layers.py#L26">
       
       (source)
     </a>
@@ -527,19 +523,24 @@ Attributes
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="shamboflow.engine.base_layers.BaseLayer.html#__init__" class="internal-link">shamboflow.engine.base_layers.BaseLayer.__init__</a></code></div>
-    <div><p class="pre">Constructor for Dense Layer
-
-Args
-----
-    size : int
-        The number of neurons in the layer
-    activation : str
-        The activation function to use for the layer. Available =&gt; `sigmoid`, `tanh`, `relu`, `leakyrelu`
-
-Kwargs
-------
-    leakyrelu_slope : float
-        The slope value if leakyrelu is used as the activation function</p></div>
+    <div><p>Constructor for Dense Layer</p>
+<dl class="rst-docutils">
+<dt>Args</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>size:</dt>
+<dd>The number of neurons in the layer</dd>
+<dt>activation:</dt>
+<dd>The activation function to use for the layer. Available =&gt; <code><a href="shamboflow.engine.activations.html#sigmoid" class="internal-link" title="shamboflow.engine.activations.sigmoid">sigmoid</a></code>, <code><a href="shamboflow.engine.activations.html#tanh" class="internal-link" title="shamboflow.engine.activations.tanh">tanh</a></code>, <code><a href="shamboflow.engine.activations.html#relu" class="internal-link" title="shamboflow.engine.activations.relu">relu</a></code>, <code><a href="shamboflow.engine.activations.html#leakyrelu" class="internal-link" title="shamboflow.engine.activations.leakyrelu">leakyrelu</a></code></dd>
+</dl>
+</dd>
+<dt>Keyword Args</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>leakyrelu_slope:</dt>
+<dd>The slope value if leakyrelu is used as the activation function</dd>
+</dl>
+</dd>
+</dl>
+</div>
   </div>
 </div><div class="basemethod">
   
@@ -554,7 +555,7 @@ Kwargs
     
     
     <span class="py-keyword">def</span> <span class="py-defname">build</span><span class="function-signature">(self)</span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/layers.py#L63">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/layers.py#L51">
       
       (source)
     </a>
@@ -583,7 +584,7 @@ Kwargs
     
     
     <span class="py-keyword">def</span> <span class="py-defname">compute</span><span class="function-signature">(self, input: <code>np.ndarray</code>) -&gt; <code>np.ndarray</code></span>:
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/layers.py#L77">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/layers.py#L65">
       
       (source)
     </a>
@@ -595,25 +596,25 @@ Kwargs
   </div>
   <div class="docstring functionBody">
     <div class="interfaceinfo">overrides <code><a href="shamboflow.engine.base_layers.BaseLayer.html#compute" class="internal-link">shamboflow.engine.base_layers.BaseLayer.compute</a></code></div>
-    <div><p class="pre">Method to perform computation on data
-
-This method accepts an input vector
+    <div><p>Method to perform computation on data</p>
+<p>This method accepts an input vector
 that is the output vector of the
 previous layer in the network. Then
-output values of this layer is calculated.
-
-The input values are simply added with the
+output values of this layer is calculated.</p>
+<p>The input values are simply added with the
 bias and then passed through the activation
-function.
-
-Args
-----
-    input : ndarray
-        The input vector
-
-Returns
--------
-    The output vector after computaion</p></div>
+function.</p>
+<dl class="rst-docutils">
+<dt>Args</dt>
+<dd><dl class="rst-docutils rst-first rst-last">
+<dt>input:</dt>
+<dd>The input vector</dd>
+</dl>
+</dd>
+<dt>Returns</dt>
+<dd>The output vector after computaion</dd>
+</dl>
+</div>
   </div>
 </div><div class="baseinstancevariable">
   
@@ -627,7 +628,7 @@ Returns
   <div class="functionHeader">
     
     <span class="py-defname">activation</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/layers.py#L50">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/layers.py#L44">
       
       (source)
     </a>
@@ -638,8 +639,8 @@ Returns
     </a>
   </div>
   <div class="functionBody">
-    
-    <div><p class="undocumented">Undocumented</p></div>
+    <div class="interfaceinfo">overrides <code><a href="shamboflow.engine.base_layers.BaseLayer.html#activation" class="internal-link">shamboflow.engine.base_layers.BaseLayer.activation</a></code></div>
+    <div><p>Activation function used by the layer</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -654,7 +655,7 @@ Returns
   <div class="functionHeader">
     
     <span class="py-defname">activation_str</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/layers.py#L51">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/layers.py#L45">
       
       (source)
     </a>
@@ -665,8 +666,8 @@ Returns
     </a>
   </div>
   <div class="functionBody">
-    
-    <div><p class="undocumented">Undocumented</p></div>
+    <div class="interfaceinfo">overrides <code><a href="shamboflow.engine.base_layers.BaseLayer.html#activation_str" class="internal-link">shamboflow.engine.base_layers.BaseLayer.activation_str</a></code></div>
+    <div><p>The name of the activation function</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -681,7 +682,7 @@ Returns
   <div class="functionHeader">
     
     <span class="py-defname">bias_array</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/layers.py#L53">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/layers.py#L57">
       
       (source)
     </a>
@@ -692,35 +693,8 @@ Returns
     </a>
   </div>
   <div class="functionBody">
-    
-    <div><p class="undocumented">Undocumented</p></div>
-    
-  </div>
-</div><div class="baseinstancevariable">
-  
-  
-  <a name="shamboflow.layers.Dense.error_array">
-    
-  </a>
-  <a name="error_array">
-    
-  </a>
-  <div class="functionHeader">
-    
-    <span class="py-defname">error_array</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/layers.py#L56">
-      
-      (source)
-    </a>
-    <a class="headerLink" href="#error_array" title="shamboflow.layers.Dense.error_array">
-      
-      
-      ¶
-    </a>
-  </div>
-  <div class="functionBody">
-    
-    <div><p class="undocumented">Undocumented</p></div>
+    <div class="interfaceinfo">overrides <code><a href="shamboflow.engine.base_layers.BaseLayer.html#bias_array" class="internal-link">shamboflow.engine.base_layers.BaseLayer.bias_array</a></code></div>
+    <div><p>Bias values of the layer</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -735,7 +709,7 @@ Returns
   <div class="functionHeader">
     
     <span class="py-defname">leakyrelu_slope</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/layers.py#L57">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/layers.py#L48">
       
       (source)
     </a>
@@ -746,8 +720,8 @@ Returns
     </a>
   </div>
   <div class="functionBody">
-    
-    <div><p class="undocumented">Undocumented</p></div>
+    <div class="interfaceinfo">overrides <code><a href="shamboflow.engine.base_layers.BaseLayer.html#leakyrelu_slope" class="internal-link">shamboflow.engine.base_layers.BaseLayer.leakyrelu_slope</a></code></div>
+    <div><p>Slope value if using leakyrelu activation function</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -762,7 +736,7 @@ Returns
   <div class="functionHeader">
     
     <span class="py-defname">midway</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/layers.py#L55">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/layers.py#L92">
       
       (source)
     </a>
@@ -773,8 +747,8 @@ Returns
     </a>
   </div>
   <div class="functionBody">
-    
-    <div><p class="undocumented">Undocumented</p></div>
+    <div class="interfaceinfo">overrides <code><a href="shamboflow.engine.base_layers.BaseLayer.html#midway" class="internal-link">shamboflow.engine.base_layers.BaseLayer.midway</a></code></div>
+    <div><p>Output value before applying avtivation function</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -789,7 +763,7 @@ Returns
   <div class="functionHeader">
     
     <span class="py-defname">output_array</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/layers.py#L54">
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/layers.py#L58">
       
       (source)
     </a>
@@ -800,8 +774,8 @@ Returns
     </a>
   </div>
   <div class="functionBody">
-    
-    <div><p class="undocumented">Undocumented</p></div>
+    <div class="interfaceinfo">overrides <code><a href="shamboflow.engine.base_layers.BaseLayer.html#output_array" class="internal-link">shamboflow.engine.base_layers.BaseLayer.output_array</a></code></div>
+    <div><p>Output matrix of the layer</p></div>
     
   </div>
 </div><div class="baseinstancevariable">
@@ -815,8 +789,8 @@ Returns
   </a>
   <div class="functionHeader">
     
-    <span class="py-defname">size</span> =
-    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/1ddfc71c05cfec473b10ae499ae8c54a8b219a46/src/shamboflow/layers.py#L48">
+    <span class="py-defname">size</span>: <code><a href="https://docs.python.org/3/library/functions.html#int" class="intersphinx-link">int</a></code> =
+    <a class="sourceLink" href="https://github.com/ShambaC/shamboflow/tree/e4a57136cee6f2df97fefd74a2840b2b16e73c94/src/shamboflow/layers.py#L41">
       
       (source)
     </a>
@@ -828,7 +802,7 @@ Returns
   </div>
   <div class="functionBody">
     
-    <div><p class="undocumented">Undocumented</p></div>
+    <div><p>Size of the layer</p></div>
     
   </div>
 </div>
@@ -843,7 +817,7 @@ Returns
   <div class="container">
     <a href="index.html">API Documentation</a> for <a href="https://github.com/ShambaC/shamboflow" class="projecthome">shamboflow</a>,
   generated by <a href="https://github.com/twisted/pydoctor/">pydoctor</a>
-    24.3.3 at 2024-09-30 09:36:27.
+    24.3.3 at 2024-10-01 18:26:24.
   </div>
 
   <!-- Search related scripts needs to be loaded at the end of HTML 
