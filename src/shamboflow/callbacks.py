@@ -180,7 +180,7 @@ class ModelCheckpoint(BaseCallback) :
             save_path:
                 Save path for the model
             monitor:
-                The metric to monitor. It is one of the 4: `loss`, `acc`, `val_loss`, `val_acc`
+                The metric to monitor. It is one of the 4: ``loss``, ``acc``, ``val_loss``, ``val_acc``
             save_best_only:
                 whether to save only the best model according to the monitor
             verbose:
