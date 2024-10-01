@@ -16,15 +16,10 @@ class Dense(BaseLayer) :
     and basic layer.
 
     Attributes
-    ----------
-        size : int
-            The number of neurons in the layer
-        bias : ndarray
-            An array of bias values for a neuron
-        activation : function
-            The activation function to apply to this layer
-        output : ndarray
-            An array of output values after applying activation function
+        size: The number of neurons in the layer
+        bias: An array of bias values for a neuron
+        activation: The activation function to apply to this layer
+        output: An array of output values after applying activation function
     
     """
 
@@ -32,29 +27,22 @@ class Dense(BaseLayer) :
         """Constructor for Dense Layer
 
         Args
-        ----
-            size : int
+            size:
                 The number of neurons in the layer
-            activation : str
+            activation:
                 The activation function to use for the layer. Available => `sigmoid`, `tanh`, `relu`, `leakyrelu`
 
-        Kwargs
-        ------
-            leakyrelu_slope : float
+        Keyword Args
+            leakyrelu_slope:
                 The slope value if leakyrelu is used as the activation function
         """
         super().__init__("Dense", activation != None)
 
-        self.size = size
+        self.size : int = size
+        """Size of the layer"""
         if activation != None :
             self.activation = get(activation)
             self.activation_str = activation
-
-        self.bias_array = None
-        self.output_array = None
-        self.midway = None
-        self.error_array = None
-        self.leakyrelu_slope = 0.0
 
         if "leakyrelu_slope" in kwargs : 
             self.leakyrelu_slope = kwargs.get("leakyrelu_slope")
@@ -87,12 +75,10 @@ class Dense(BaseLayer) :
         function.
 
         Args
-        ----
-            input : ndarray
+            input:
                 The input vector
         
         Returns
-        -------
             The output vector after computaion
         
         """

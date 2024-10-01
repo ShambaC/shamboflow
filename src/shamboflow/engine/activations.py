@@ -1,4 +1,4 @@
-"""Activation functions"""
+"""Common Activation functions"""
 
 import numpy as np
 import cupy as cp
@@ -16,12 +16,10 @@ def sigmoid(x : np.ndarray, **kwargs) -> np.ndarray :
     Range: (0, 1)
 
     Args
-    ----
-    x : ndarray
+    x:
         The input vector to apply activation function over.
 
     Returns
-    -------
         Value after sigmoid is applied on x
     
     """
@@ -44,12 +42,10 @@ def tanh(x : np.ndarray, **kwargs) -> np.ndarray :
     Range: (-1, 1)
 
     Args
-    ----
-    x : ndarray
+    x:
         The input vector to apply activation function over.
 
     Returns
-    -------
         Value after tanh is applied on x
     
     """
@@ -79,12 +75,10 @@ def relu(x : np.ndarray, **kwargs) -> np.ndarray :
     Range: [0, inf)
 
     Args
-    ----
-    x : ndarray
+    x:
         The input vector to apply activation function over.
 
     Returns
-    -------
         Value after relu is applied on x
     """
 
@@ -111,14 +105,12 @@ def leakyrelu(x : np.ndarray, leakyrelu_slope : float, **kwargs) -> np.ndarray :
     Range: (-inf, inf)
 
     Args
-    ----
-    x : ndarray
+    x:
         The input vector to apply activation function over.
-    slope : float
+    slope:
         slope of the line that provides output for negative inputs
 
     Returns
-    -------
         Value after leakyrelu is applied on x
     """
 
@@ -143,13 +135,13 @@ def softmax(x : np.ndarray, **kwargs) -> np.ndarray :
     Range: (0, 1)
 
     Args
-    ----
-    x : ndarray
+    x:
         The input vector to apply activation function over.
 
     Returns
-    -------
         Value after softmax is applied on x
+
+    WARNING: Not available at the moment
     """
 
     if IS_CUDA :
@@ -172,12 +164,10 @@ def get(func : str) :
     depending on the given string
 
     Args
-    ----
-        func : str
+        func:
             Query string for the requested activation function
 
     Returns
-    -------
         Appropriate function
     """
     # TODO : handle wrong inputs

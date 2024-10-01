@@ -20,14 +20,12 @@ def MSE(pred_val : np.ndarray, obs_val : np.ndarray) -> float :
     1/n to simplify the partial derivative.
 
     Args
-    ----
-        pred_val : ndarray
+        pred_val:
             The input vector to calculate the error for
-        obs_val : ndarray
+        obs_val:
             The actual observed values
     
     Returns
-    -------
         Overall error of the output
 
     """
@@ -53,12 +51,10 @@ def get(func : str) :
     depending on the given string
 
     Args
-    ----
-        func : str
+        func:
             Query string for the requested loss function
 
     Returns
-    -------
         Appropriate function
     """
 

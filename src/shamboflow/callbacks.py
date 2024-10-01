@@ -19,63 +19,66 @@ class EarlyStopping(BaseCallback) :
         """Initialize
 
         Args
-        ----
-            monitor : str
+            monitor:
                 The metric to monitor. It is one of the 4: `loss`, `acc`, `val_loss`, `val_acc`
-            patience : int
+            patience:
                 How many epoch to monitor before stopping
-            verbose : bool = False
+            verbose:
                 Log callback function logs
         
         """
 
-        self.monitor = monitor
-        self.patience = patience
-        self.verbose = verbose
+        self._monitor = monitor
+        self._patience = patience
+        self._verbose = verbose
 
-        self.metric_old = 0.0
-        self.patience_ctr = 0
+        self._metric_old = 0.0
+        self._patience_ctr = 0
 
     def run(self, model : BaseModel) -> None:
-        """The callback method that will be called after each epoch"""
+        """The callback method that will be called after each epoch
+        
+        Args
+            model: The model on which callback wil be called
+        """
 
-        if self.monitor in ('val_loss', 'val_acc') :
+        if self._monitor in ('val_loss', 'val_acc') :
             if not model.has_validation_data :
-                self.monitor = self.monitor.removeprefix('val_')
+                self._monitor = self._monitor.removeprefix('val_')
 
-        current_metric = model.metrics[self.monitor]
+        current_metric = model.metrics[self._monitor]
         if model.current_epoch == 0 :
-            self.metric_old = current_metric
+            self._metric_old = current_metric
             return
         
-        if 'loss' in self.monitor :
-            if current_metric >= self.metric_old :
-                self.patience_ctr += 1
+        if 'loss' in self._monitor :
+            if current_metric >= self._metric_old :
+                self._patience_ctr += 1
 
-                if self.verbose :
-                    print(f"[EarlyStopping] : {self.monitor} has not improved for the past {self.patience_ctr} epochs.")
+                if self._verbose :
+                    print(f"[EarlyStopping] : {self._monitor} has not improved for the past {self._patience_ctr} epochs.")
 
-                if self.patience_ctr == self.patience :
-                    print(Back.RED + Fore.WHITE + f"Early Stopping, {self.monitor} has not improved for past {self.patience} epochs")
+                if self._patience_ctr == self._patience :
+                    print(Back.RED + Fore.WHITE + f"Early Stopping, {self._monitor} has not improved for past {self._patience} epochs")
                     print(Style.RESET_ALL)
                     model.stop()
             else :
-                self.patience_ctr = 0
+                self._patience_ctr = 0
         else :
-            if current_metric <= self.metric_old :
-                self.patience_ctr += 1
+            if current_metric <= self._metric_old :
+                self._patience_ctr += 1
 
-                if self.verbose :
-                    print(f"[EarlyStopping] : {self.monitor} has not improved for the past {self.patience_ctr} epochs.")
+                if self._verbose :
+                    print(f"[EarlyStopping] : {self._monitor} has not improved for the past {self._patience_ctr} epochs.")
                     
-                if self.patience_ctr == self.patience :
-                    print(Back.RED + Fore.WHITE + f"Early Stopping, {self.monitor} has not improved for past {self.patience} epochs")
+                if self._patience_ctr == self._patience :
+                    print(Back.RED + Fore.WHITE + f"Early Stopping, {self._monitor} has not improved for past {self._patience} epochs")
                     print(Style.RESET_ALL)
                     model.stop()
             else :
-                self.patience_ctr = 0
+                self._patience_ctr = 0
 
-        self.metric_old = current_metric
+        self._metric_old = current_metric
 
 
 class ReduceLROnPlateau(BaseCallback) :
@@ -92,72 +95,75 @@ class ReduceLROnPlateau(BaseCallback) :
         """Initialize
         
         Args
-        ----
-            monitor : str
+            monitor:
                 The metric to monitor. It is one of the 4: `loss`, `acc`, `val_loss`, `val_acc`
-            patience : int
+            patience:
                 How many epoch to monitor before stopping
-            factor : float = 0.9
+            factor:
                 fraction to which the learning rate will be lowered to. Note - This is not by how much to reduce but how much to reduce to
-            min_val : float = 1e-10
+            min_val:
                 Min possible learning rate
-            verbose : bool = False
+            verbose:
                 Log callback function logs
         """
 
-        self.monitor = monitor
-        self.patience = patience
-        self.factor = factor
-        self.min_val = min_val
-        self.verbose = verbose
+        self._monitor = monitor
+        self._patience = patience
+        self._factor = factor
+        self._min_val = min_val
+        self._verbose = verbose
 
-        self.metric_old = 0.0
-        self.patience_ctr = 0
+        self._metric_old = 0.0
+        self._patience_ctr = 0
 
     def run(self, model : BaseModel) -> None:
-        """The callback method that will be called after each epoch"""
+        """The callback method that will be called after each epoch
+        
+        Args
+            model: The model on which callback wil be called
+        """
 
-        if self.monitor in ('val_loss', 'val_acc') :
+        if self._monitor in ('val_loss', 'val_acc') :
             if not model.has_validation_data :
-                self.monitor = self.monitor.removeprefix('val_')
+                self._monitor = self._monitor.removeprefix('val_')
 
-        current_metric = model.metrics[self.monitor]
+        current_metric = model.metrics[self._monitor]
         if model.current_epoch == 0 :
-            self.metric_old = current_metric
+            self._metric_old = current_metric
             return
         
-        if 'loss' in self.monitor :
-            if current_metric >= self.metric_old :
-                self.patience_ctr += 1
+        if 'loss' in self._monitor :
+            if current_metric >= self._metric_old :
+                self._patience_ctr += 1
 
-                if self.verbose :
-                    print(f"[ReduceLROnPlateau] : {self.monitor} has not improved for the past {self.patience_ctr} epochs.")
+                if self._verbose :
+                    print(f"[ReduceLROnPlateau] : {self._monitor} has not improved for the past {self._patience_ctr} epochs.")
 
-                if self.patience_ctr == self.patience :
-                    new_LR = self.factor * model.learning_rate
-                    model.learning_rate = new_LR if new_LR > self.min_val else model.learning_rate
+                if self._patience_ctr == self._patience :
+                    new_LR = self._factor * model.learning_rate
+                    model.learning_rate = new_LR if new_LR > self._min_val else model.learning_rate
 
-                    print(Back.RED + Fore.WHITE + f"Reducing Learning Rate, {self.monitor} has not improved for past {self.patience} epochs. New Learning rate is {model.learning_rate}")
+                    print(Back.RED + Fore.WHITE + f"Reducing Learning Rate, {self._monitor} has not improved for past {self._patience} epochs. New Learning rate is {model.learning_rate}")
                     print(Style.RESET_ALL)
             else :
-                self.patience_ctr = 0
+                self._patience_ctr = 0
         else :
-            if current_metric <= self.metric_old :
-                self.patience_ctr += 1
+            if current_metric <= self._metric_old :
+                self._patience_ctr += 1
 
-                if self.verbose :
-                    print(f"[ReduceLROnPlateau] : {self.monitor} has not improved for the past {self.patience_ctr} epochs.")
+                if self._verbose :
+                    print(f"[ReduceLROnPlateau] : {self._monitor} has not improved for the past {self._patience_ctr} epochs.")
                     
-                if self.patience_ctr == self.patience :
-                    new_LR = self.factor * model.learning_rate
-                    model.learning_rate = new_LR if new_LR > self.min_val else model.learning_rate
+                if self._patience_ctr == self._patience :
+                    new_LR = self._factor * model.learning_rate
+                    model.learning_rate = new_LR if new_LR > self._min_val else model.learning_rate
 
-                    print(Back.RED + Fore.WHITE + f"Reducing Learning Rate, {self.monitor} has not improved for past {self.patience} epochs. New Learning rate is {model.learning_rate}")
+                    print(Back.RED + Fore.WHITE + f"Reducing Learning Rate, {self._monitor} has not improved for past {self._patience} epochs. New Learning rate is {model.learning_rate}")
                     print(Style.RESET_ALL)
             else :
-                self.patience_ctr = 0
+                self._patience_ctr = 0
 
-        self.metric_old = current_metric
+        self._metric_old = current_metric
 
 class ModelCheckpoint(BaseCallback) :
     """Model Checkpointing
@@ -171,52 +177,55 @@ class ModelCheckpoint(BaseCallback) :
         """Initialize
         
         Args
-        ----
-            save_path : str = 'model.ckpt'
+            save_path:
                 Save path for the model
-            monitor : str
+            monitor:
                 The metric to monitor. It is one of the 4: `loss`, `acc`, `val_loss`, `val_acc`
-            save_best_only : bool = True
+            save_best_only:
                 whether to save only the best model according to the monitor
-            verbose : bool = False
+            verbose:
                 Log callback function logs
 
         """
 
-        self.save_path = save_path
-        self.monitor = monitor
-        self.save_best = save_best_only
-        self.verbose = verbose
+        self._save_path = save_path
+        self._monitor = monitor
+        self._save_best = save_best_only
+        self._verbose = verbose
 
-        self.metric_old = 0.0
+        self._metric_old = 0.0
 
     def run(self, model : BaseModel) -> None:
-        """The callback method that will be called after each epoch"""
+        """The callback method that will be called after each epoch
+        
+        Args
+            model: The model on which callback wil be called
+        """
 
-        if not self.save_best :
-            if self.verbose :
-                print(f"[ModelCheckpoint] : Saving to {self.save_path}")
-            model.save(self.save_path)
+        if not self._save_best :
+            if self._verbose :
+                print(f"[ModelCheckpoint] : Saving to {self._save_path}")
+            model.save(self._save_path)
             return
 
-        if self.monitor in ('val_loss', 'val_acc') :
+        if self._monitor in ('val_loss', 'val_acc') :
             if not model.has_validation_data :
-                self.monitor = self.monitor.removeprefix('val_')
+                self._monitor = self._monitor.removeprefix('val_')
 
-        current_metric = model.metrics[self.monitor]
+        current_metric = model.metrics[self._monitor]
         if model.current_epoch == 0 :
-            self.metric_old = current_metric
+            self._metric_old = current_metric
             return
         
-        if 'loss' in self.monitor :
-            if current_metric < self.metric_old :
-                if self.verbose :
-                    print(f"[ModelCheckpoint] : Metric has improved. Saving to {self.save_path}")
-                model.save(self.save_path)
+        if 'loss' in self._monitor :
+            if current_metric < self._metric_old :
+                if self._verbose :
+                    print(f"[ModelCheckpoint] : Metric has improved. Saving to {self._save_path}")
+                model.save(self._save_path)
         else :
-            if current_metric > self.metric_old :
-                if self.verbose :
-                    print(f"[ModelCheckpoint] : Metric has improved. Saving to {self.save_path}")
-                model.save(self.save_path)
+            if current_metric > self._metric_old :
+                if self._verbose :
+                    print(f"[ModelCheckpoint] : Metric has improved. Saving to {self._save_path}")
+                model.save(self._save_path)
 
-        self.metric_old = current_metric
+        self._metric_old = current_metric

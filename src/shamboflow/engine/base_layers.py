@@ -1,5 +1,7 @@
 """Base class for layers"""
 
+import numpy as np
+
 class BaseLayer :
     """The base class for layers to inherit from.
 
@@ -11,12 +13,11 @@ class BaseLayer :
     data from previous layers.
 
     Attributes
-    ----------
-        name :
+        name:
             The name of the layer
-        trainable :
+        trainable:
             Is the layer trainable
-        is_built :
+        is_built:
             Is the layer built and initialized
     """
 
@@ -24,16 +25,34 @@ class BaseLayer :
         """Constructor for the base layer class
 
         Args
-        ----
-            name : str
+            name:
                 Name of the layer
-            trainable : bool
+            trainable:
                 Is the layer trainable. Default is True
         
         """
-        self.name = name
-        self.trainable = trainable
-        self.is_built = False
+        self.name : str = name
+        """Name of the layer"""
+        self.trainable : bool = trainable
+        """Is the layer trainable"""
+        self.is_built : bool = False
+        """has the layer been built and compiled"""
+
+        self.bias_array : np.ndarray = None
+        """Bias values of the layer"""
+        self.output_array : np.ndarray = None
+        """Output matrix of the layer"""
+        self.midway : np.ndarray = None
+        """Output value before applying avtivation function"""
+        self.error_array : np.ndarray = None
+        """Error values of the layer"""
+        self.leakyrelu_slope : float = 0.0
+        """Slope value if using leakyrelu activation function"""
+
+        self.activation = None
+        """Activation function used by the layer"""
+        self.activation_str : str = None
+        """The name of the activation function"""
 
     def build(self) -> None :
         """Method to build and initialize the layer.

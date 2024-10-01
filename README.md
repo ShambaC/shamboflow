@@ -3,7 +3,7 @@
 </div>
 
 ![Python](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-white?style=for-the-badge&labelColor=gray&color=blue)
-![PyPI - Version](https://img.shields.io/pypi/v/shamboflow?style=for-the-badge&link=https%3A%2F%2Fpypi.org%2Fproject%2Fshamboflow%2F)
+[![PyPI - Version](https://img.shields.io/pypi/v/shamboflow?style=for-the-badge&link=https%3A%2F%2Fpypi.org%2Fproject%2Fshamboflow%2F)](https://pypi.org/project/shamboflow/)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/ShambaC/shamboflow/python-publish.yml?style=for-the-badge)
 ![GitHub Release Date](https://img.shields.io/github/release-date/ShambaC/shamboflow?display_date=published_at&style=for-the-badge)
 

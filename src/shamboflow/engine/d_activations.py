@@ -67,6 +67,7 @@ def d_leakyrelu(x : np.ndarray, leakyrelu_slope : float, **kwargs) -> np.ndarray
     return np.where(x < 0, leakyrelu_slope, 1)
 
 def d_softmax(x : np.ndarray, **kwargs) -> np.ndarray :
+    """Not implemented yet"""
     pass
 
 
@@ -77,12 +78,10 @@ def get(func : str) :
     depending on the given string
 
     Args
-    ----
-        func : str
+        func:
             Query string for the requested activation function derivative
 
     Returns
-    -------
         Appropriate function
     """
     # TODO : handle wrong inputs

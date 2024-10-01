@@ -26,12 +26,10 @@ def get(func : str) :
     depending on the given string
 
     Args
-    ----
-        func : str
+        func:
             Query string for the requested loss function derivative
 
     Returns
-    -------
         Appropriate function
     """
 

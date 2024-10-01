@@ -36,12 +36,11 @@ class Sequential(BaseModel) :
         and performs required operations.
 
         Args
-        ----
-            loss : str
+            loss:
                 The loss function to use. Available => `mean_squared_error`
-            learning_rate : float
+            learning_rate:
                 The learning_rate to use while fitting data
-            verbose : bool
+            verbose:
                 Should progress be displayed in details
 
         """
@@ -94,21 +93,18 @@ class Sequential(BaseModel) :
         network does the learning.
 
         Args
-        ----
-            train_x : ndarray
+            train_x:
                 The features of the dataset
-            train_y : ndarray
+            train_y:
                 The label of the dataset
-            epochs : int
+            epochs:
                 The number of steps to run the training for
             
             
-        Kwargs
-        ------
-            validation_x : ndarray
-            validation_y : ndarray
-            callbacks : list
-                A list of callback methods
+        Keyword Args
+            validation_x: validation data set features
+            validation_y: validation data set labels
+            callbacks:  A list of callback methods
         
         """
 
@@ -245,13 +241,13 @@ class Sequential(BaseModel) :
         """Method to evaluate the model with test data
         
         Args
-        ----
-            x_data : ndarray
+            x_data:
                 The features of the dataset
-            y_data : ndarray
+            y_data:
                 The label of the dataset
-            kwargs : dict
-                allowed arg -> is_validation => bool
+            
+        Keyword Args
+            is_validation: Whether the model is called during validation set checking step of training
         """
 
         is_val = False
@@ -322,8 +318,7 @@ class Sequential(BaseModel) :
         """Method to save the model to disk
         
         Args
-        ----
-            save_path : str
+            save_path:
                 Path to where the model will be saved, along with the name of the model file
         """
 
@@ -337,9 +332,11 @@ class Sequential(BaseModel) :
         """Method to predict data labels
         
         Args
-        ----
-            input_x : ndarray
+            input_x:
                 The features of the data to predict
+
+        Returns
+            The final output layer with the generated values
         """
         
         num_layer = -1
@@ -367,12 +364,10 @@ def load_model(path_to_model : str) -> BaseModel :
     """Method to load a model from disk
     
     Args
-    ----
-        path_to_model : str
+        path_to_model:
             path to the model file
     
     Returns
-    -------
         The model object
 
     """

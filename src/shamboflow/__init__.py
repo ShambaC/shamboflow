@@ -15,16 +15,16 @@ try :
         print("CUDA enabled GPU found")
         print("-----------------------")
 
-        cuda_version = cp.cuda.runtime.runtimeGetVersion()
-        driver_version = cp.cuda.runtime.driverGetVersion()
+        _cuda_version = cp.cuda.runtime.runtimeGetVersion()
+        _driver_version = cp.cuda.runtime.driverGetVersion()
 
-        print(f"CUDA Version: {cuda_version // 1000}.{(cuda_version % 1000) // 10}")
-        print(f"CUDA Driver Version: {driver_version // 1000}.{(driver_version % 1000) // 10}")
+        print(f"CUDA Version: {_cuda_version // 1000}.{(_cuda_version % 1000) // 10}")
+        print(f"CUDA Driver Version: {_driver_version // 1000}.{(_driver_version % 1000) // 10}")
 
-        props = cp.cuda.runtime.getDeviceProperties(0)
-        print(f"Name: {props['name'].decode()}")
-        print(f"Compute Capability: {props['major']}.{props['minor']}")
-        print(f"Total Memory: {props['totalGlobalMem'] / 1e9:.2f} GB")
+        _props = cp.cuda.runtime.getDeviceProperties(0)
+        print(f"Name: {_props['name'].decode()}")
+        print(f"Compute Capability: {_props['major']}.{_props['minor']}")
+        print(f"Total Memory: {_props['totalGlobalMem'] / 1e9:.2f} GB")
         print("\n-----------------------------------------------\n")
 except :
     pass
