@@ -1,3 +1,8 @@
+# v1.0.2
+Fix a fatal error
+- fit() and evaluate() always used the last data from y
+- replace apply_along_axis with enumerate and for loop
+
 # v1.0.1
 Another relase yay!
 - Fixed model.summary() to actually show an output now
