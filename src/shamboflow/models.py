@@ -130,7 +130,7 @@ class Sequential(BaseModel) :
         while self.is_fitting and self.current_epoch < self.epochs :
 
             with tqdm(total=num_rows + 1) as pbar :
-                def row_iter(x) :
+                def row_iter(x, idx) :
                     num_layer = -1
 
                     # Forward propagation
@@ -149,8 +149,8 @@ class Sequential(BaseModel) :
                             weight = self.weights[num_layer - 1]
                             layer.compute(np.matmul(op, weight))
                     
-                    self.error_val = self.loss(self.layers[num_layer].output_array, self.train_data_y[num_rows])
-                    acc = np.subtract(self.train_data_y[num_rows], self.layers[num_layer].output_array)
+                    self.error_val = self.loss(self.layers[num_layer].output_array, self.train_data_y[idx])
+                    acc = np.subtract(self.train_data_y[idx], self.layers[num_layer].output_array)
                     self.accuracy_val = (self.layers[num_layer].size - np.count_nonzero(acc)) / self.layers[num_layer].size
 
                     self.metrics['acc'] = self.accuracy_val
@@ -166,7 +166,7 @@ class Sequential(BaseModel) :
 
                     if IS_CUDA :
                         ## Compute Gradients for output layer
-                        d_loss_res_gpu = cp.asarray(d_loss_fun(self.layers[num_layer].output_array, self.train_data_y[num_rows]))
+                        d_loss_res_gpu = cp.asarray(d_loss_fun(self.layers[num_layer].output_array, self.train_data_y[idx]))
                         d_act_res_gpu = cp.asarray(d_act_fun(self.layers[num_layer].midway, leakyrelu_slope=self.layers[num_layer].leakyrelu_slope))
                         gradient_op = cp.multiply(d_loss_res_gpu, d_act_res_gpu)
                         self.layers[num_layer].error_array = gradient_op
@@ -196,7 +196,7 @@ class Sequential(BaseModel) :
                         
                     else :
                         ## Compute Gradients for output layer
-                        d_loss_res = d_loss_fun(self.layers[num_layer].output_array, self.train_data_y[num_rows])
+                        d_loss_res = d_loss_fun(self.layers[num_layer].output_array, self.train_data_y[idx])
                         d_act_res = d_act_fun(self.layers[num_layer].midway, leakyrelu_slope=self.layers[num_layer].leakyrelu_slope)
                         gradient_op = np.multiply(d_loss_res, d_act_res)
                         self.layers[num_layer].error_array = gradient_op
@@ -228,7 +228,8 @@ class Sequential(BaseModel) :
                     pbar.set_postfix_str(f"Accuracy: {self.accuracy_val}, Loss: {self.error_val}")
                     pbar.update(1)    
 
-                np.apply_along_axis(row_iter, 1, self.train_data_x)
+                for idx, row_x in enumerate(self.train_data_x) :
+                    row_iter(row_x, idx)
             
             # Call the callback methods
             for callback in self.callbacks :
@@ -259,7 +260,7 @@ class Sequential(BaseModel) :
         test_accuracy_val = 0.0
 
         with tqdm(total=num_rows) as pbar :
-            def row_iter(x) :
+            def row_iter(x, idx) :
                 num_layer = -1
                 global test_error_val
                 global test_accuracy_val
@@ -279,8 +280,8 @@ class Sequential(BaseModel) :
                         weight = self.weights[num_layer - 1]
                         layer.compute(np.matmul(op, weight))
                     
-                test_error_val = self.loss(self.layers[num_layer].output_array, y_data[num_rows])
-                acc = np.subtract(y_data[num_rows], self.layers[num_layer].output_array)
+                test_error_val = self.loss(self.layers[num_layer].output_array, y_data[idx])
+                acc = np.subtract(y_data[idx], self.layers[num_layer].output_array)
                 test_accuracy_val = (self.layers[num_layer].size - np.count_nonzero(acc)) / self.layers[num_layer].size
 
                 if is_val :
@@ -291,7 +292,8 @@ class Sequential(BaseModel) :
                 pbar.set_postfix_str(f"Accuracy: {test_accuracy_val}, Loss: {test_error_val}")
                 pbar.update(1)
 
-            np.apply_along_axis(row_iter, 1, x_data)
+            for idx, row_x in enumerate(x_data) :
+                row_iter(row_x, idx)
 
         print(f"Accuracy: {test_accuracy_val}, Error: {test_error_val}")
 
