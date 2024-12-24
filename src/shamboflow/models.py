@@ -53,7 +53,7 @@ class Sequential(BaseModel) :
             print(Fore.CYAN + "Compiling Model ...")
             print(Style.RESET_ALL + "Building layers")
 
-        with tqdm(self.layers) as pbar :
+        with tqdm(self.layers, ascii=" ⚊⚊", colour="#5eff8a") as pbar :
             for layer in pbar :
                 layer.build()
                 self.parameters += layer.size
@@ -129,7 +129,7 @@ class Sequential(BaseModel) :
 
         while self.is_fitting and self.current_epoch < self.epochs :
 
-            with tqdm(total=num_rows + 1) as pbar :
+            with tqdm(total=num_rows + 1, ascii=" ⚊⚊", colour="#5eff8a") as pbar :
                 def row_iter(x, idx) :
                     num_layer = -1
 
@@ -259,7 +259,7 @@ class Sequential(BaseModel) :
         test_error_val = 0.0
         test_accuracy_val = 0.0
 
-        with tqdm(total=num_rows) as pbar :
+        with tqdm(total=num_rows, ascii=" ⚊⚊", colour="#5eff8a") as pbar :
             def row_iter(x, idx) :
                 num_layer = -1
                 global test_error_val
